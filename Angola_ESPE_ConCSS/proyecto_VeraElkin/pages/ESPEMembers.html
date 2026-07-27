@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPEMembers</title>
+    <!-- Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS-->
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/ESPEMembers.css">
+    <!-- ICONOS-->
+    <link rel="icon" href="../img/ESPEMembers/Miembros.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>ESPE Members</h1>
+        <div id="perfilUsuario"></div>
+    </header>
+
+    <figure>
+        <img src="../img/espe.png" alt="Logo Espe" width="200" height="100">
+        <figcaption>Universidad de las Fuerzas Armadas Espe</figcaption>
+    </figure>
+
+    <nav>
+        <a href="../Principal/Angola.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-house"></i> Página Principal </a>
+        <a href="../pages/ESPEAcademic.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-graduation-cap"></i> Academico </a>
+        <a href="../pages/ESPEDeportes.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-futbol"></i> Deportes </a>
+        <a href="../pages/ESPEMarket.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-cart-shopping"></i> Market </a>
+        <a href="#"> <i class="fa-solid fa-users"></i> Members </a>
+        <a href="../index.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" --> <i
+                class="fa-solid fa-sign-out-alt"></i> Salir </a>
+    </nav>
+
+
+    <main>
+
+        <aside>
+            <h2>Bienvenido a ESPEMembers</h2>
+            <i class="fa-solid fa-users fa-3x"></i>
+            <p>Sube de status con lo más premium al mejor precio compartido</p>
+        </aside>
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Slide 1: TEXTO -->
+                <div class="carousel-item active">
+                    <div class="carousel-fixed-item">
+                        <div class="carousel-text-content">
+                            <h2> <i class="fa-solid fa-crown me-2"></i> Bienvenido a ESPEMembers</h2>
+                            <p>El lugar más <b>exclusivo</b> de la ESPE</p>
+                            <p class="mt-3" style="font-size: 1rem; opacity:0.8;">
+                                <i class="fa-solid fa-circle-check me-1"></i> Comparte y ahorra en tus servicios
+                                favoritos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: VIDEO -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <!-- El video se centrará y se recortará para llenar el contenedor -->
+                        <video src="../video/6474633-uhd_4096_2160_25fps.mp4" autoplay muted loop playsinline>
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Slide 3: IMAGEN 1 (epic.jpg) -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <img src="../img/ESPEMembers/epic.jpg" alt="Imagen épica">
+                    </div>
+                </div>
+
+                <!-- Slide 4: IMAGEN 2 (netflix.png) -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <img src="../img/ESPEMembers/netflix.png" alt="Netflix">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTROLES DEL CARRUSEL -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- FIN DEL CARRUSEL MEJORADO -->
+
+
+        <!-- Buscar y Publicar -->
+        <section class="formularios-members">
+            <form action="#" method="get" class="form-buscar">
+                <fieldset>
+                    <legend>Buscar Membresías</legend>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="Nombre" placeholder="Netflix, Spotify...">
+                    <br><br>
+                    <label for="precio">Precio máximo:</label>
+                    <input type="number" id="precio" name="Precio" placeholder="Precio máximo">
+                    <br><br>
+                    <button type="submit">Buscar</button>
+                </fieldset>
+            </form>
+
+            <form action="#" method="get" class="form-publicar">
+                <fieldset>
+                    <legend>Publicar Membresía</legend>
+                    <label for="servicio">Servicio:</label>
+                    <input type="text" id="servicio" name="Servicio" placeholder="Netflix, Spotify...">
+                    <br><br>
+                    <label for="nuevoPrecio">Precio:</label>
+                    <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio por persona">
+                    <br><br>
+                    <label for="espacios">Espacios:</label>
+                    <input type="number" id="espacios" name="Espacios" placeholder="Cantidad">
+                    <br><br>
+                    <button type="submit">Publicar</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Listado de membresías (tarjetas dentro de articles) -->
+        <section class="membresias-container">
+            <h2>Membresías disponibles</h2>
+            <!-- cards-members -->
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+
+                <!-- Tarjeta 1: Netflix -->
+                <div class="card shadow-sm h-100 rounded" style="width: 18rem;">
+                    <img src="../img/ESPEMembers/Netflix-Logo.jpg" class="card-img-top" alt="Netflix">
+                    <div class="card-body text-center">
+                        <h5 class="card-title bg-success text-white p-2 rounded">Netflix Premium</h5>
+                        <p class="card-text mt-2">Organizado por Ana Rodríguez</p>
+                        <p class="espacios">
+                            <i class="fa-regular fa-user me-1"></i> Espacios: 2/4
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="fa-solid fa-display me-2"></i> 4K Ultra HD</li>
+                        <li class="list-group-item"><i class="fa-solid fa-mobile-screen me-2"></i> Hasta 4 pantallas
+                        </li>
+                        <li class="list-group-item"><i class="fa-solid fa-download me-2"></i> Descargas ilimitadas</li>
+                        <li class="list-group-item fw-bold text-warning fs-5">
+                            <i class="fa-solid fa-coins me-2"></i> $3.50 <small class="text-muted fs-6">/mes</small>
+                        </li>
+                    </ul>
+                    <div class="card-body text-center mt-auto">
+                        <a href="#" class="btn btn-success w-100">
+                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Spotify -->
+                <div class="card shadow-sm h-100" style="width: 18rem;">
+                    <img src="../img/ESPEMembers/Spotify.png" class="card-img-top" alt="Spotify">
+                    <div class="card-body text-center">
+                        <h5 class="card-title bg-success text-white p-2 rounded">Spotify Familiar</h5>
+                        <p class="card-text mt-2">Organizado por Carlos Méndez</p>
+                        <p class="espacios">
+                            <i class="fa-regular fa-user me-1"></i> Espacios: 1/6
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="fa-solid fa-ban me-2"></i> Sin anuncios</li>
+                        <li class="list-group-item"><i class="fa-solid fa-wifi me-2"></i> Música offline</li>
+                        <li class="list-group-item"><i class="fa-solid fa-star me-2"></i> Calidad Premium</li>
+                        <li class="list-group-item fw-bold text-warning fs-5">
+                            <i class="fa-solid fa-coins me-2"></i> $2.00 <small class="text-muted fs-6">/mes</small>
+                        </li>
+                    </ul>
+                    <div class="card-body text-center mt-auto">
+                        <a href="#" class="btn btn-success w-100">
+                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Amazon Prime -->
+                <div class="card shadow-sm h-100" style="width: 18rem;">
+                    <img src="../img/ESPEMembers/AmazonPrime.webp" class="card-img-top" alt="Amazon Prime">
+                    <div class="card-body text-center">
+                        <h5 class="card-title bg-success text-white p-2 rounded">Amazon Prime</h5>
+                        <p class="card-text mt-2">Organizado por Laura Torres</p>
+                        <p class="espacios">
+                            <i class="fa-regular fa-user me-1"></i> Espacios: 3/5
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item"><i class="fa-solid fa-video me-2"></i> Prime Video</li>
+                        <li class="list-group-item"><i class="fa-solid fa-music me-2"></i> Prime Music</li>
+                        <li class="list-group-item"><i class="fa-solid fa-truck me-2"></i> Envíos gratis</li>
+                        <li class="list-group-item fw-bold text-warning fs-5">
+                            <i class="fa-solid fa-coins me-2"></i> $2.50 <small class="text-muted fs-6">/mes</small>
+                        </li>
+                    </ul>
+                    <div class="card-body text-center mt-auto">
+                        <a href="#" class="btn btn-success w-100">
+                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            </div>
+        </section>
+
+        <section class="miembros-comunidad">
+            <h2>Miembros de la comunidad</h2>
+            <p id="estadoMiembros" style="color:gray;"></p>
+            <div id="contenedorMiembros" class="d-flex flex-wrap justify-content-center gap-4"></div>
+        </section>
+
+    </main>
+    <a href="#" class="arriba"><i class="fa-solid fa-arrow-up"></i></a>
+    <br><br>
+
+
+    <footer>
+        <!-- style="background-color: rgb(11, 114, 49); color: white; padding: 10px; width: 100%; text-align: center;" -->
+        <p>&copy; 2026 Espe. Todos los derechos reservados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

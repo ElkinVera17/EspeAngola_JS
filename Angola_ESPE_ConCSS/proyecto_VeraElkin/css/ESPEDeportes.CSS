@@ -1,0 +1,288 @@
+
+
+/* ============================================================
+   BLOQUE 1: FONDO GENERAL DE LA PÁGINA
+   Define el color de fondo con temática deportiva.
+   ============================================================ */
+body {
+    background: #c0d6c0;
+}
+
+
+/* ============================================================
+   BLOQUE 2: SECCIÓN DE BIENVENIDA
+   Estilo tipo marcador deportivo para el mensaje principal.
+   ============================================================ */
+.welcome {
+    background: #1a2f1a;
+    color: white;
+    border-radius: 16px;
+    padding: 20px 16px;
+}
+
+.welcome h2, .welcome p {
+    color: white;
+}
+
+.welcome h2 {
+    font-size: 1.2rem;
+}
+
+
+/* ============================================================
+   BLOQUE 3: TARJETA DETAILS INFORMATIVA
+   Apariencia de tarjeta para información adicional.
+   ============================================================ */
+.info-details {
+    background: #fffaec;
+    border-radius: 20px;
+    border-bottom: 4px solid #ffb347;
+    margin-bottom: 8px;
+    padding: 10px 16px;
+}
+
+
+/* ============================================================
+   BLOQUE 4: CONTENEDOR DE TARJETAS
+   Organiza las cards usando Flexbox y permite que se
+   distribuyan automáticamente en varias filas.
+   ============================================================ */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+
+/* ============================================================
+   BLOQUE 5: TARJETAS DE EVENTOS
+   Define la estructura visual de cada tarjeta.
+   ============================================================ */
+.card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ============================================================
+   BLOQUE 6: IMÁGENES DE LAS TARJETAS
+   Mantiene proporción y evita deformaciones usando cover.
+   ============================================================ */
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* ============================================================
+   BLOQUE 7: TÍTULOS DE LAS TARJETAS
+   Etiqueta destacada para el nombre del evento.
+   ============================================================ */
+.card h3 {
+    background: #0b7231;
+    color: white;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin: -15px auto 10px auto;
+    position: relative;
+    text-align: center;
+}
+
+
+/* ============================================================
+   BLOQUE 8: DESCRIPCIÓN DE LAS TARJETAS
+   Estilo de los párrafos informativos.
+   ============================================================ */
+.card p {
+    background: #f0ede5;
+    border-left: none;
+    border-radius: 12px;
+    padding: 8px 12px;
+    margin: 5px 12px;
+    font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   BLOQUE 9: BARRA DE PROGRESO
+   Personaliza la apariencia de los elementos progress.
+   ============================================================ */
+progress {
+    height: 12px;
+    border-radius: 20px;
+    width: 60%;
+    margin: 5px auto;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #ddd;
+    border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #ffb347;
+    border-radius: 20px;
+}
+
+
+/* ============================================================
+   BLOQUE 10: BOTÓN DE INSCRIPCIÓN
+   Estilo principal y efecto hover del botón.
+   ============================================================ */
+.btn-download {
+    background: #e67e22;
+    border-radius: 40px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px auto 15px;
+    padding: 8px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background: #f39c12;
+}
+
+
+/* ============================================================
+   BLOQUE 11: CONTENEDOR DE TABLA RESPONSIVE
+   Permite desplazamiento horizontal en pantallas pequeñas.
+   ============================================================ */
+.stats-table {
+    margin: 20px auto;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* ============================================================
+   BLOQUE 12: ESTRUCTURA GENERAL DE LA TABLA
+   Configuración visual de la tabla de estadísticas.
+   ============================================================ */
+
+.stats-table table {
+    width: 100%;
+    min-width: 400px;
+    background: white;
+    border-collapse: collapse;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* ============================================================
+   BLOQUE 13: ENCABEZADOS DE TABLA
+   Estilo de las celdas th.
+   ============================================================ */
+.stats-table th {
+    background: #0b7231;
+    color: white;
+    padding: 12px 8px;
+    font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   BLOQUE 14: CELDAS DE DATOS
+   Formato para las celdas td y progress internos.
+   ============================================================ */
+.stats-table td {
+    padding: 10px 6px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.stats-table td progress {
+    width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+/* ============================================================
+   BLOQUE 15: ADAPTACIÓN A MÓVILES
+   Reduce tamaños y ajusta elementos para pantallas pequeñas.
+   ============================================================ */
+@media (min-width: 600px) {
+    .card {
+        width: 280px;
+        max-width: 280px;
+    }
+
+    .card img {
+        height: 150px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .cards-container {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .card img {
+        height: 170px;
+    }
+}
+
+
+
+
+/* ============================================================
+   BLOQUE 17: SECCIÓN CREAR EVENTO
+   Apariencia del fieldset del formulario de creación.
+   ============================================================ */
+.upload-section fieldset {
+    background: #fff9ef;
+    border-radius: 28px;
+    border: 1px solid #ffcd94;
+}
+
+/* ============================================================
+   BLOQUE 18: BOTÓN VOLVER ARRIBA
+   Permite regresar rápidamente al inicio.
+   ============================================================ */
+
+.arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--espe-green);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-outline-warning{
+    color: #ffcd94;
+    border-color: #ffcd94;
+}
+
+@media (max-width: 768px) {
+
+    .stats-table td progress {
+        display: none;
+    }
+
+}

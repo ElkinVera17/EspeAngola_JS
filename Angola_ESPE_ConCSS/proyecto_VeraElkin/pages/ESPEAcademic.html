@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPEAcademic</title>
+    <!-- Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS-->
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/ESPEAcademic.css">
+    <link rel="icon" href="../img/ESPEAcademic/Libro.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>ESPE Académico</h1>
+        <div id="perfilUsuario"></div>
+    </header>
+
+    <figure>
+        <img src="../img/espe.png" alt="Logo Espe" width="200" height="100">
+        <figcaption>Universidad de las Fuerzas Armadas Espe</figcaption>
+    </figure>
+
+    <nav>
+        <a href="../Principal/Angola.html"><i class="fa-solid fa-house"></i> Página Principal</a>
+        <a href="#"><i class="fa-solid fa-graduation-cap"></i> Académico</a>
+        <a href="../pages/ESPEDeportes.html"><i class="fa-solid fa-futbol"></i> Deportes</a>
+        <a href="../pages/ESPEMarket.html"><i class="fa-solid fa-cart-shopping"></i> Market</a>
+        <a href="../pages/ESPEMembers.html"><i class="fa-solid fa-users"></i> Members</a>
+        <a href="../index.html"><i class="fa-solid fa-sign-out-alt"></i> Salir</a>
+    </nav>
+
+    <main>
+
+        <section class="welcome">
+            <h2>Bienvenido a ESPEAcademic</h2>
+            <i class="fa-solid fa-graduation-cap fa-3x"></i>
+            <p>Puedes probar tus conocimientos con exámenes pasados y aprender más</p>
+        </section>
+
+        <details class="info-details">
+            <summary>Beneficios de usar ESPEAcademic</summary>
+            <p>Conocer tu pasado académico es la clave para dominar tu futuro, piensa que las pruebas anteriores son
+                hechas por el mismo ingeniero para el mismo tema</p>
+        </details>
+
+        <section class="search-section">
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Buscador</legend>
+                    <label for="carrera">Carrera:</label>
+                    <select id="carrera" name="Carrera">
+                        <option value="1">ITIN</option>
+                        <option value="2">Agropecuaria</option>
+                        <option value="3">Biotecnologia</option>
+                    </select>
+                    <br><br>
+                    <label for="nivel">Nivel:</label>
+                    <input type="number" id="nivel" name="Semestre" min="1" placeholder="Semestre">
+                    <br><br>
+                    <label for="materia">Materia:</label>
+                    <select id="materia" name="Materia">
+                        <option value="1">EDO</option>
+                        <option value="2">POO</option>
+                        <option value="3">Calculo</option>
+                        <option value="4">Fisica</option>
+                        <option value="5">Computación digital</option>
+                        <option value="6">Liderazgo</option>
+                    </select>
+                    <br><br>
+                    <label for="profesor">Profesor:</label>
+                    <input type="text" id="profesor" name="Profesor" placeholder="Nombre del profesor">
+                    <br><br>
+                    <button type="submit">Buscar</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <h2>Documentos disponibles</h2>
+        <div class="cards-container">
+
+            <article class="card">
+                <img src="../img/ESPEAcademic/pdf.png" alt="Documento PDF" width="80" height="80">
+                <h3>Examen Practico - Parcial 1</h3>
+                <div class="container-fluid p-0">
+
+                    <div class="row g-2 mb-2"> <!-- gap y margen -->
+                        <div class="col-12">
+                            <span
+                                class="badge colorAcademic w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-folder-open me-1"></i> Matemáticas
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fecha y Descargas  -->
+                    <div class="row g-2 mb-2">
+                        <div class="col-6"> <!-- siempre es 12 por eso 6 es 50%-->
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-calendar me-1"></i> Nov 2025
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-cloud-arrow-down me-1"></i> 234 descargas
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: Calificación -->
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="rating mb-0 text-center"> <!-- text-center de Bootstrap -->
+                                <i class="fa-solid fa-star text-warning"></i> 4.5/5.0
+                                <span class="text-muted ms-2">(Excelente)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../Confirmación/Pdf_Descargado.html" class="btn btn-outline-info">Descargar</a>
+            </article>
+
+            <article class="card">
+                <img src="../img/ESPEAcademic/pdf.png" alt="Documento PDF" width="80" height="80">
+                <h3>Examen Practico - Parcial 1</h3>
+
+                <!-- Grid de Bootstrap  -->
+                <div class="container-fluid p-0">
+
+                    <div class="row g-2 mb-2"> <!-- gap y margen -->
+                        <div class="col-12">
+                            <span
+                                class="badge colorAcademic w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-folder-open me-1"></i> Fundamentos Web
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fecha y Descargas  -->
+                    <div class="row g-2 mb-2">
+                        <div class="col-6"> <!-- siempre es 12 por eso 6 es 50%-->
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-calendar me-1"></i> Nov 2025
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-cloud-arrow-down me-1"></i> 234 descargas
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: Calificación -->
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="rating mb-0 text-center"> <!-- text-center de Bootstrap -->
+                                <i class="fa-solid fa-star text-warning"></i> 4.5/5.0
+                                <span class="text-muted ms-2">(Excelente)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN -->
+
+                <a href="../Confirmación/Pdf_Descargado.html" class="btn btn-outline-info">Descargar</a>
+            </article>
+
+            <article class="card">
+                <img src="../img/ESPEAcademic/pdf.png" alt="Documento PDF" width="80" height="80">
+                <h3>Examen Practico - Parcial 1</h3>
+                <!-- Grid de Bootstrap  -->
+                <div class="container-fluid p-0">
+
+                    <div class="row g-2 mb-2"> <!-- gap y margen -->
+                        <div class="col-12">
+                            <span
+                                class="badge colorAcademic w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-folder-open me-1"></i> Fisica
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fecha y Descargas  -->
+                    <div class="row g-2 mb-2">
+                        <div class="col-6"> <!-- siempre es 12 por eso 6 es 50%-->
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-calendar me-1"></i> Nov 2025
+                            </span>
+                        </div>
+                        <div class="col-6">
+                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
+                                <i class="fa-regular fa-cloud-arrow-down me-1"></i> 087 descargas
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: Calificación -->
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="rating mb-0 text-center"> <!-- text-center de Bootstrap -->
+                                <i class="fa-solid fa-star text-warning"></i> 4.5/5.0
+                                <span class="text-muted ms-2">(Bueno)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIN -->
+                <a href="#" class="btn btn-outline-info ">Descargar</a>
+            </article>
+        </div>
+
+        <section class="upload-section">
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Nuevo Archivo</legend>
+                    <label for="carrera2">Carrera:</label>
+                    <select id="carrera2" name="Carrera">
+                        <option value="1">ITIN</option>
+                        <option value="2">Agropecuaria</option>
+                        <option value="3">Biotecnologia</option>
+                    </select>
+                    <br><br>
+                    <label for="nivel2">Nivel:</label>
+                    <input type="number" id="nivel2" name="Semestre" max="8" min="1" placeholder="Semestre">
+                    <br><br>
+                    <label for="materia2">Materia:</label>
+                    <select id="materia2" name="Materia">
+                        <option value="1">EDO</option>
+                        <option value="2">POO</option>
+                        <option value="3">Calculo</option>
+                        <option value="4">Fisica</option>
+                        <option value="5">Computación digital</option>
+                        <option value="6">Liderazgo</option>
+                    </select>
+                    <br><br>
+                    <label for="profesor2">Profesor:</label>
+                    <input type="text" id="profesor2" name="Profesor" placeholder="Nombre del profesor">
+                    <br><br>
+                    <label for="archivo">Archivo:</label>
+                    <input type="file" id="archivo" name="Archivo">
+                    <br><br>
+                    <button type="button" class="btn btn-outline-success">Limpiar</button>
+                    <button type="submit" class="btn btn-outline-success">Subir</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Espe. Todos los derechos reservados</p>
+    </footer>
+
+    <a href="#" class="arriba rounded-circle"><i class="fa-solid fa-arrow-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+    </body>
+
+</html>

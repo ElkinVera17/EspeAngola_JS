@@ -1,0 +1,273 @@
+/* ============================================================
+   BLOQUE 1: FONDO GENERAL
+   Define un fondo suave para toda la página.
+   ============================================================ */
+
+body {
+    background-color: #f5f2e8;
+}
+
+
+/* ============================================================
+   BLOQUE 2: CABECERA
+   Personaliza el color principal del encabezado.
+   ============================================================ */
+
+header {
+   background-color: #187fab;
+}
+
+
+/* ============================================================
+   BLOQUE 3: SECCIÓN DE BIENVENIDA
+   Destaca la introducción principal de la página.
+   ============================================================ */
+
+.welcome {
+    background: linear-gradient(120deg, #ffffff 0%, #fef9e6 100%);
+    border: 1px solid #dad2b0;
+    border-radius: 20px;
+    padding: 24px 16px;
+    margin-bottom: 20px;
+}
+
+.welcome h2 {
+    color: #1a472a;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.2rem;
+}
+
+.welcome i {
+    color: #0b7231;
+    background: #eef4e8;
+    padding: 12px;
+    border-radius: 60px;
+}
+
+
+/* ============================================================
+   BLOQUE 4: INFORMACIÓN DESPLEGABLE
+   Muestra información adicional mediante details.
+   ============================================================ */
+
+.info-details {
+    background: #fffef7;
+    border-left: 8px solid #187fab;
+    border-radius: 16px;
+    padding: 16px 24px;
+}
+
+.info-details summary {
+    font-weight: 600;
+    color: #1e4663;
+    font-size: 1.1rem;
+}
+
+/* ============================================================
+   BLOQUE 5: FORMULARIO DE BÚSQUEDA
+   Personaliza los controles de búsqueda.
+   ============================================================ */
+
+.search-section fieldset {
+    background: white;
+    border: 1px solid #d4d0be;
+    border-radius: 20px;
+    padding: 16px 14px;
+}
+
+.search-section legend {
+    background: #187fab;
+    color: white;
+    border-radius: 8px;
+    padding: 4px 16px;
+    font-size: 0.85rem;
+}
+
+.search-section input,
+.search-section select {
+    border: 1px solid #cdc9b4;
+    border-radius: 24px;
+    padding: 10px 16px;
+    background: #fefcf5;
+}
+
+
+
+/* ============================================================
+   BLOQUE 6: CONTENEDOR DE TARJETAS
+   Controla la separación entre tarjetas.
+   ============================================================ */
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px 0;
+}
+
+
+/* ============================================================
+   BLOQUE 7: TARJETAS DE DOCUMENTOS
+   Muestra recursos académicos en formato de tarjeta.
+   ============================================================ */
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e2dbc8;
+    border-radius: 20px;
+    padding: 16px 12px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.card:hover {
+    border-color: #0b7231;
+    transform: translateY(-3px);
+}
+
+.card img {
+    background: #eef2e8;
+    padding: 12px;
+    border-radius: 60px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #0b4f2c;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.card p {
+    background: #f8f5ec;
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    color: #4a4a3a;
+}
+
+.rating {
+    background: transparent !important;
+    font-size: 0.9rem;
+}
+
+
+/* ============================================================
+   BLOQUE 8: BOTÓN DE DESCARGA
+   Estilo para enlaces de descarga.
+   ============================================================ */
+
+.btn-download {
+    display: inline-block;
+    background: #0b7231;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: 600;
+    color: white;
+    font-size: 0.75rem;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+
+.btn-download:hover {
+    background: #064d22;
+}
+
+
+/* ============================================================
+   BLOQUE 9: SUBIDA DE ARCHIVOS
+   Personaliza el formulario para cargar documentos.
+   ============================================================ */
+
+.upload-section fieldset {
+    background: #fefcf5;
+    border: 1px solid #d8d0b8;
+    border-radius: 24px;
+}
+
+.upload-section legend {
+    background: #187fab;
+    border-radius: 8px;
+    color: white;
+}
+
+.upload-section input[type="file"] {
+    border: 1px dashed #0b7231;
+    background: #f0f5ea;
+    border-radius: 32px;
+}
+
+
+/* ============================================================
+   BLOQUE 10: PIE DE PÁGINA
+   Agrega un borde decorativo superior.
+   ============================================================ */
+
+footer {
+    border-top: 3px solid #ffcd7e;
+    margin-top: 48px;
+}
+
+
+/* ============================================================
+   BLOQUE 11: DISEÑO RESPONSIVE
+   Ajusta formularios y tarjetas en pantallas pequeñas.
+   ============================================================ */
+
+@media (min-width: 768px) {
+    .card {
+        width: 300px;
+        padding: 20px 16px;
+    }
+
+    .cards-container {
+        gap: 28px;
+    }
+
+    .card img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .search-section input,
+    .search-section select {
+        width: 60%;
+    }
+}
+
+/* ============================================================
+   BLOQUE 12: BOTÓN VOLVER ARRIBA
+   Permite regresar rápidamente al inicio.
+   ============================================================ */
+
+.arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--espe-green);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colorpiel{
+    background: #f8f5ec;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    color: #4a4a3a;
+}
+
+.colorAcademic{
+background: #187fab;
+color : #fff;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+
+}

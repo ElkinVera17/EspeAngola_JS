@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPEMarket</title>
+    <!-- Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS-->
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/ESPEMarket.css">
+    <link rel="icon" href="../img/ESPEMarket/tienda_blanca.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1 id="titulo">ESPE Market</h1>
+        <div id="perfilUsuario"></div>
+    </header>
+
+    <figure>
+        <img src="../img/espe.png" alt="Logo Espe" width="200" height="100">
+        <figcaption>Universidad de las Fuerzas Armadas Espe</figcaption>
+    </figure>
+
+    <nav>
+        <a href="../Principal/Angola.html"><i class="fa-solid fa-house"></i> Página Principal</a>
+        <a href="../pages/ESPEAcademic.html"><i class="fa-solid fa-graduation-cap"></i> Académico</a>
+        <a href="../pages/ESPEDeportes.html"><i class="fa-solid fa-futbol"></i> Deportes</a>
+        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Market</a>
+        <a href="../pages/ESPEMembers.html"><i class="fa-solid fa-users"></i> Members</a>
+        <a href="../index.html"><i class="fa-solid fa-sign-out-alt"></i> Salir</a>
+    </nav>
+
+    <main>
+
+        <aside class="bienvenida-market">
+            <h2>Bienvenido a ESPEMarket</h2>
+            <i class="fa-solid fa-cart-shopping fa-3x"></i>
+            <p>Compra y vende productos de la universidad. ¡Sé un emprendedor!</p>
+        </aside>
+        <!-- Acordeón informativo del Market -->
+        <div class="accordion mt-4" id="accordionMarket">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa-solid fa-circle-info me-2 text-success"></i> ¿Cómo funciona ESPEMarket?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionMarket">
+                    <div class="accordion-body">
+                        <strong>ESPEMarket</strong> es el espacio de compra y venta exclusivo para la comunidad ESPE.
+                        Aquí puedes publicar productos que ya no uses o encontrar lo que necesitas entre estudiantes y
+                        docentes.
+                        Cada publicación debe incluir una imagen, precio y descripción clara.
+                        <br><br>
+                        <i class="fa-regular fa-circle-check text-success me-1"></i> <strong>Consejo:</strong> Revisa la
+                        reputación del vendedor antes de comprar y coordina la entrega en puntos seguros dentro del
+                        campus.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fa-solid fa-shield-halved me-2 text-success"></i> Políticas de seguridad
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionMarket">
+                    <div class="accordion-body">
+                        <strong>La seguridad de nuestra comunidad es prioridad.</strong>
+                        <ul class="text-start mt-2">
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Verifica la identidad del
+                                usuario con su correo @espe.edu.ec</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> No compartas información
+                                personal sensible</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Realiza las transacciones
+                                en lugares públicos del campus</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Reporta cualquier
+                                publicación sospechosa</li>
+                        </ul>
+                        <p class="mt-2 mb-0">Si encuentras un producto fraudulento, contacta al <strong>soporte de
+                                ESPEMarket</strong> para tomar acciones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Buscador -->
+        <section class="buscador-market">
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Buscar Productos</legend>
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="Categoria">
+                        <option value="1">Comida</option>
+                        <option value="2">Libros</option>
+                        <option value="3">Tecnología</option>
+                        <option value="4">Ropa</option>
+                        <option value="5">Servicios</option>
+                    </select>
+
+                    <label for="precio">Precio Máximo:</label>
+                    <input type="number" id="precio" name="Precio" placeholder="Precio máximo">
+
+                    <label for="producto">Producto:</label>
+                    <input type="text" id="producto" name="Producto" placeholder="Nombre del producto">
+
+                    <button type="submit">Buscar</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Lista de productos -->
+        <section class="productos-market">
+            <h2>Productos destacados</h2>
+            <div class="cards-productos">
+
+                <article class="card-producto" id="dulce">
+                    <div class="card-imagen" style="background-image: url('../img/ESPEMarket/dulces.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Venta de Dulces Artesanales</h3>
+                        <p>Por: Juan Pérez</p>
+                        <p class="precio">$1.50</p>
+                        <p class="likes"><i class="fa-solid fa-heart"></i> 145</p>
+                        <a href="#" class="btn-carrito">Añadir al carrito</a>
+                    </div>
+                </article>
+
+                <article class="card-producto" id="ingles">
+                    <div class="card-imagen" style="background-image: url('../img/ESPEMarket/Libro_Ingles.jpg');"></div>
+                    <div class="card-info">
+                        <h3>Libros de Inglés</h3>
+                        <p>Por: María García</p>
+                        <p class="precio">$12.00</p>
+                        <p class="likes"><i class="fa-solid fa-heart"></i> 89</p>
+                        <a href="#" class="btn-carrito">Añadir al carrito</a>
+                    </div>
+                </article>
+
+                <article class="card-producto" id="maquillaje">
+                    <div class="card-imagen" style="background-image: url('../img/ESPEMarket/maquillaje.webp');"></div>
+                    <div class="card-info">
+                        <h3>Maquillaje Premium</h3>
+                        <p>Por: Carlos Ruiz</p>
+                        <p class="precio">$5.00</p>
+                        <p class="likes"><i class="fa-solid fa-heart"></i> 45</p>
+                        <a href="#" class="btn-carrito">Añadir al carrito</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Publicar producto -->
+        <section class="publicar-market">
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Publicar Producto</legend>
+                    <label for="nuevoProducto">Producto:</label>
+                    <input type="text" id="nuevoProducto" name="NuevoProducto" placeholder="Nombre del producto">
+
+                    <label for="nuevaCategoria">Categoría:</label>
+                    <select id="nuevaCategoria" name="NuevaCategoria">
+                        <option value="1">Comida</option>
+                        <option value="2">Libros</option>
+                        <option value="3">Tecnología</option>
+                        <option value="4">Ropa</option>
+                        <option value="5">Servicios</option>
+                    </select>
+
+                    <label for="nuevoPrecio">Precio:</label>
+                    <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio">
+
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="Descripcion" placeholder="Descripción del producto"></textarea>
+
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="Imagen">
+
+                    <legend class="legend-privado">Privado</legend>
+
+            <div class="campo-formulario">
+                <label for="exampleFormControlInput1">Te contactaremos con Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1"
+                    placeholder="name@example.com">
+            </div>
+
+            <div class="campo-formulario">
+                <label for="exampleFormControlTextarea1">¿Cómo te ayudamos a crecer más?</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" 
+                    placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+            </div>
+
+            <button type="submit">Publicar</button>
+                </fieldset>
+
+            </form>
+        </section>
+
+
+
+        <!-- Carrito -->
+        <a class="btn btn-primary Carrito" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+            aria-controls="offcanvasExample">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Emprende y Apoya!</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    No te detangas estas ayudando a alguien a seguir con sus sueños.
+                </div>
+                <div class="dropdown mt-3">
+
+
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Objeto</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">$</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>dulce</td>
+                                <td>5</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Libro</td>
+                                <td>5</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Maquillaje</td>
+                                <td>5</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown">
+                        Productos en carrito
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="#dulce" data-bs-dismiss="offcanvas">dulce 1.50</a></li>
+                        <li><a class="dropdown-item" href="#ingles" data-bs-dismiss="offcanvas">libro 12</a></li>
+                        <li><a class="dropdown-item" href="#maquillaje" data-bs-dismiss="offcanvas">maquillaje 5</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos más vendidos (galería simple) -->
+        <section class="top-productos">
+            <h3>Productos más vendidos</h3>
+            <div class="galeria-productos">
+                <img src="../img/ESPEMarket/Libro_Ingles.jpg" alt="Libros de Inglés">
+                <img src="../img/ESPEMarket/maquillaje.webp" alt="Maquillaje Premium">
+                <img src="../img/ESPEMarket/Dulces.jpg" alt="Dulces">
+                <img src="../img/ESPEMarket/chocho.jpg" alt="Chochos">
+                <img src="../img/ESPEMarket/HotDog.jpg" alt="Hot Dog">
+                <img src="../img/ESPEMarket/buso.webp" alt="Busos">
+            </div>
+        </section>
+
+    </main>
+
+    <a href="#" class="arriba"><i class="fa-solid fa-arrow-up"></i></a>
+
+
+    <footer>
+        <p>&copy; 2026 Espe. Todos los derechos reservados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

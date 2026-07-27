@@ -1,0 +1,294 @@
+
+
+
+/* ============================================================
+   BLOQUE 1: FONDO GENERAL DE LA PÁGINA
+   Define el color de fondo de la sección de membresías.
+   ============================================================ */
+body {
+    background: #eef2f5;
+}
+
+
+/* ============================================================
+   BLOQUE 2: SECCIÓN DE BIENVENIDA
+   Estilo del aside principal con información introductoria.
+   ============================================================ */
+aside {
+    background: #2c3e2b;
+    color: white;
+    border-radius: 30px 12px 30px 12px;
+    padding: 20px 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+aside h2 {
+    font-size: 1.2rem;
+}
+
+aside h2,
+aside p {
+    color: white;
+}
+
+
+/* ============================================================
+   BLOQUE 3: CONTENEDOR DE FORMULARIOS
+   Organiza los formularios usando Flexbox y permite
+   acomodarlos en varias filas cuando sea necesario.
+   ============================================================ */
+.formularios-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+/* ============================================================
+   BLOQUE 4: FORMULARIOS DE BÚSQUEDA Y PUBLICACIÓN
+   Apariencia de las tarjetas que contienen formularios.
+   ============================================================ */
+.form-buscar,
+.form-publicar {
+    background: white;
+    border-radius: 24px;
+    padding: 16px 14px;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ============================================================
+   BLOQUE 5: CONTENEDOR DE TARJETAS
+   Distribuye las membresías en formato de tarjetas.
+   ============================================================ */
+.cards-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+
+/* ============================================================
+   BLOQUE 6: TARJETAS DE MEMBRESÍAS
+   Define la estructura visual de cada membresía.
+   ============================================================ */
+.card-members {
+    background: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* ============================================================
+   BLOQUE 7: CABECERA DE LA TARJETA
+   Área superior destacada con nombre y descripción.
+   ============================================================ */
+.card-header {
+    background: #0b7231;
+    color: white;
+    padding: 16px;
+    text-align: center;
+}
+
+.card-header h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.card-header p {
+    color: #ffd966;
+    margin: 0;
+}
+
+
+/* ============================================================
+   BLOQUE 8: CUERPO DE LA TARJETA
+   Contiene beneficios, precio y demás información.
+   ============================================================ */
+.card-body {
+    padding: 16px 14px;
+}
+
+
+/* ============================================================
+   BLOQUE 9: INDICADOR DE ESPACIOS DISPONIBLES
+   Etiqueta visual para mostrar cupos restantes.
+   ============================================================ */
+.espacios {
+    background: #ffecb3;
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.bg-success {
+    background-color: var(--espe-green) !important; /* #0b7231 */
+}
+
+
+/* ============================================================
+   BLOQUE 10: LISTA DE BENEFICIOS
+   Formato de la lista y de cada elemento incluido.
+   ============================================================ */
+.card-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 15px 0;
+}
+
+.card-body li {
+    background: #f0f7f0;
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 40px;
+    color: #1e5a2a;
+    text-align: center;
+}
+
+
+/* ============================================================
+   BLOQUE 11: PRECIO DE LA MEMBRESÍA
+   Resalta el costo principal y texto secundario.
+   ============================================================ */
+.precio {
+    font-size: 2rem;
+    color: #e67e22;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.precio span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+/* ============================================================
+   BLOQUE 12: BOTÓN UNIRSE
+   Estilo principal y efecto hover del botón de acción.
+   ============================================================ */
+.btn-unirse {
+    display: block;
+    background: #0b7231;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 40px;
+    text-align: center;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-unirse:hover {
+    background: #e67e22;
+}
+
+
+/* ============================================================
+   BLOQUE 13: DISEÑO RESPONSIVE
+   Ajustes para mejorar la visualización en móviles.
+   ============================================================ */
+@media (min-width: 700px) {
+    .card-members {
+        width: 320px;
+        max-width: 320px;
+    }
+
+    .form-buscar,
+    .form-publicar {
+        width: 380px;
+        max-width: 380px;
+        padding: 20px;
+    }
+}
+
+/* ============================================================
+   BLOQUE 14: BOTÓN VOLVER ARRIBA
+   Permite regresar rápidamente al inicio.
+   ============================================================ */
+
+.arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--espe-green);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top{
+    height: 180px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card{
+    width: 18rem;
+}
+
+.card .list-group{
+    min-height: 180px;
+}
+
+/* ============================================================
+   BLOQUE 15: Para carrosel
+   ============================================================ */
+
+/* Este es el estilo clave: un contenedor de altura fija */
+        .carousel-fixed-item {
+            height: 450px; 
+            background-color: #1a1a2e; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; 
+            border-radius: 15px; 
+        }
+
+        /* Estilos para las imágenes y videos dentro del contenedor */
+        .carousel-fixed-item img,
+        .carousel-fixed-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* cubrirá  sin deformarse */
+        }
+
+        /* Texto*/
+        .carousel-fixed-item .carousel-text-content {
+            color: white;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); 
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .carousel-fixed-item .carousel-text-content h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffd700; 
+        }
+
+        .carousel-fixed-item .carousel-text-content p {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+        }
+        .carousel-fixed-item .carousel-text-content b {
+            color: #00d4ff;
+        }
