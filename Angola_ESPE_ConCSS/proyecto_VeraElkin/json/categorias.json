@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "Comida",
+        "descripcion": "Productos alimenticios y bebidas",
+        "icono": "fa-utensils",
+        "imagen": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 2,
+        "nombre": "Libros",
+        "descripcion": "Libros de texto, novelas y material educativo",
+        "icono": "fa-book",
+        "imagen": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 3,
+        "nombre": "Tecnología",
+        "descripcion": "Dispositivos electrónicos, accesorios y software",
+        "icono": "fa-laptop",
+        "imagen": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 4,
+        "nombre": "Ropa",
+        "descripcion": "Prendas de vestir y accesorios de moda",
+        "icono": "fa-tshirt",
+        "imagen": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 5,
+        "nombre": "Servicios",
+        "descripcion": "Servicios profesionales y académicos",
+        "icono": "fa-handshake",
+        "imagen": "https://images.unsplash.com/photo-1557425493-6f90ae4659fc?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 6,
+        "nombre": "Deportes",
+        "descripcion": "Equipamiento y accesorios deportivos",
+        "icono": "fa-futbol",
+        "imagen": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=200&h=200&fit=crop",
+        "activo": true
+    },
+    {
+        "id": 7,
+        "nombre": "Arte",
+        "descripcion": "Productos artísticos y creativos",
+        "icono": "fa-paint-brush",
+        "imagen": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=200&h=200&fit=crop",
+        "activo": true
+    }
+]

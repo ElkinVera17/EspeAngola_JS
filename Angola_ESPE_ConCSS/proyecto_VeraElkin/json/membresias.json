@@ -1,0 +1,702 @@
+[
+    {
+        "id": 1,
+        "servicio": "Netflix Premium",
+        "descripcion": "Plan familiar con 4K Ultra HD y 4 pantallas simultáneas",
+        "servicioId": 1,
+        "precioTotal": 14.00,
+        "precioPorPersona": 3.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-001",
+        "fechaPublicacion": "2026-06-01",
+        "imagen": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=300&fit=crop",
+        "beneficios": [
+            "4K Ultra HD",
+            "Hasta 4 pantallas simultáneas",
+            "Descargas ilimitadas",
+            "Sin anuncios"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Netflix",
+            "tipo": "streaming",
+            "sitioWeb": "netflix.com"
+        }
+    },
+    {
+        "id": 2,
+        "servicio": "Spotify Familiar",
+        "descripcion": "Plan familiar con música sin anuncios y offline",
+        "servicioId": 2,
+        "precioTotal": 12.00,
+        "precioPorPersona": 2.00,
+        "espaciosTotal": 6,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-002",
+        "fechaPublicacion": "2026-06-05",
+        "imagen": "https://www.lavanguardia.com/files/image_990_484/files/fp/uploads/2023/06/16/648ba6e425d22.r_d.1600-1200-3094.jpeg",
+        "beneficios": [
+            "Sin anuncios",
+            "Música offline",
+            "Calidad Premium",
+            "Saltos ilimitados"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Spotify",
+            "tipo": "musica",
+            "sitioWeb": "spotify.com"
+        }
+    },
+    {
+        "id": 3,
+        "servicio": "Amazon Prime",
+        "descripcion": "Plan completo con acceso a Prime Video, Music y envíos gratis",
+        "servicioId": 3,
+        "precioTotal": 12.50,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 3,
+        "organizadorId": "user-003",
+        "fechaPublicacion": "2026-06-10",
+        "imagen": "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Prime Video",
+            "Prime Music",
+            "Envíos gratis",
+            "Ofertas exclusivas"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Amazon",
+            "tipo": "multipropósito",
+            "sitioWeb": "amazon.com"
+        }
+    },
+    {
+        "id": 4,
+        "servicio": "Disney+ Premium",
+        "descripcion": "Acceso a todo el contenido de Disney, Marvel y Star Wars",
+        "servicioId": 4,
+        "precioTotal": 11.00,
+        "precioPorPersona": 2.75,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 4,
+        "organizadorId": "user-004",
+        "fechaPublicacion": "2026-06-12",
+        "imagen": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Contenido Disney",
+            "Marvel y Star Wars",
+            "4K Ultra HD",
+            "4 pantallas"
+        ],
+        "estado": "completo",
+        "plataforma": {
+            "nombre": "Disney+",
+            "tipo": "streaming",
+            "sitioWeb": "disneyplus.com"
+        }
+    },
+    {
+        "id": 5,
+        "servicio": "YouTube Premium",
+        "descripcion": "Disfruta de YouTube sin anuncios con descarga de videos",
+        "servicioId": 5,
+        "precioTotal": 9.00,
+        "precioPorPersona": 2.25,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-005",
+        "fechaPublicacion": "2026-06-18",
+        "imagen": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Sin anuncios",
+            "Descarga de videos",
+            "YouTube Music",
+            "Reproducción en segundo plano"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "YouTube",
+            "tipo": "streaming",
+            "sitioWeb": "youtube.com"
+        }
+    },
+    {
+        "id": 6,
+        "servicio": "HBO Max",
+        "descripcion": "Acceso a todo el contenido de HBO, DC Comics y más",
+        "servicioId": 6,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-006",
+        "fechaPublicacion": "2026-06-22",
+        "imagen": "https://m.media-amazon.com/images/I/717+-1StDDL.png",
+        "beneficios": [
+            "Contenido HBO",
+            "DC Comics",
+            "Películas y series",
+            "4K Ultra HD"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "HBO Max",
+            "tipo": "streaming",
+            "sitioWeb": "hbomax.com"
+        }
+    },
+    {
+        "id": 7,
+        "servicio": "Crunchyroll",
+        "descripcion": "Acceso a todo el contenido de anime y manga",
+        "servicioId": 7,
+        "precioTotal": 7.00,
+        "precioPorPersona": 1.75,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-007",
+        "fechaPublicacion": "2026-06-25",
+        "imagen": "https://sm.ign.com/t/ign_latam/cover/c/crunchyrol/crunchyroll_xkv2.600.jpg",
+        "beneficios": [
+            "Anime sin anuncios",
+            "Manga digital",
+            "Simulcast",
+            "Calidad 1080p"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Crunchyroll",
+            "tipo": "streaming",
+            "sitioWeb": "crunchyroll.com"
+        }
+    },
+    {
+        "id": 8,
+        "servicio": "Apple Music",
+        "descripcion": "Plan familiar con acceso a toda la música de Apple",
+        "servicioId": 8,
+        "precioTotal": 15.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 6,
+        "espaciosOcupados": 3,
+        "organizadorId": "user-008",
+        "fechaPublicacion": "2026-06-28",
+        "imagen": "https://store-images.s-microsoft.com/image/apps.62962.14205055896346606.c235e3d6-fbce-45bb-9051-4be6c2ecba8f.28d7c3cb-0c64-40dc-9f24-53326f80a6dd?h=210",
+        "beneficios": [
+            "100M canciones",
+            "Sin anuncios",
+            "Música offline",
+            "Calidad Lossless"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Apple Music",
+            "tipo": "musica",
+            "sitioWeb": "apple.com/music"
+        }
+    },
+    {
+        "id": 9,
+        "servicio": "Paramount+",
+        "descripcion": "Acceso a películas y series de Paramount",
+        "servicioId": 9,
+        "precioTotal": 6.00,
+        "precioPorPersona": 1.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-009",
+        "fechaPublicacion": "2026-07-01",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Paramount_Plus.svg/330px-Paramount_Plus.svg.png",
+        "beneficios": [
+            "Películas Paramount",
+            "Series exclusivas",
+            "Deportes en vivo",
+            "Noticias 24/7"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Paramount+",
+            "tipo": "streaming",
+            "sitioWeb": "paramountplus.com"
+        }
+    },
+    {
+        "id": 10,
+        "servicio": "Star+",
+        "descripcion": "Acceso a contenido de Star, FX y más",
+        "servicioId": 10,
+        "precioTotal": 9.00,
+        "precioPorPersona": 2.25,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-010",
+        "fechaPublicacion": "2026-07-03",
+        "imagen": "https://lumiere-a.akamaihd.net/v1/images/starplus-logo-1920x1080_b581da62.png?region=0,0,1920,1080&width=768",
+        "beneficios": [
+            "Contenido Star",
+            "Series FX",
+            "Películas exclusivas",
+            "Deportes"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Star+",
+            "tipo": "streaming",
+            "sitioWeb": "starplus.com"
+        }
+    },
+    {
+        "id": 11,
+        "servicio": "NordVPN",
+        "descripcion": "Plan compartido de VPN con alta seguridad",
+        "servicioId": 11,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.00,
+        "espaciosTotal": 6,
+        "espaciosOcupados": 3,
+        "organizadorId": "user-011",
+        "fechaPublicacion": "2026-07-05",
+        "imagen": "https://play-lh.googleusercontent.com/8yhQejdntBkaku4Vt-HD9f8Ujcl1EJeE1WX2ypEMEzPxY-8AG9-rLjm8OVKmIpmmBC2uWhlqCzKI8be3XkFlIDQ=w240-h480-rw",
+        "beneficios": [
+            "VPN ilimitada",
+            "Alta velocidad",
+            "Sin registros",
+            "6 dispositivos"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "NordVPN",
+            "tipo": "servicio",
+            "sitioWeb": "nordvpn.com"
+        }
+    },
+    {
+        "id": 12,
+        "servicio": "Microsoft 365",
+        "descripcion": "Acceso a Office completo con OneDrive",
+        "servicioId": 12,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 6,
+        "espaciosOcupados": 4,
+        "organizadorId": "user-012",
+        "fechaPublicacion": "2026-07-08",
+        "imagen": "https://www.lifewire.com/thmb/ki7sb-yEhJXOCSv2A--pe-wV3h4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/001-a-complete-guide-to-microsoft-office-fe6077e048334d9aa96cdf604995c9d8.jpg",
+        "beneficios": [
+            "Office completo",
+            "1TB OneDrive",
+            "Teams",
+            "Outlook"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Microsoft",
+            "tipo": "servicio",
+            "sitioWeb": "microsoft.com"
+        }
+    },
+    {
+        "id": 13,
+        "servicio": "Canva Pro",
+        "descripcion": "Acceso a Canva Pro con herramientas de diseño",
+        "servicioId": 13,
+        "precioTotal": 12.00,
+        "precioPorPersona": 3.00,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-013",
+        "fechaPublicacion": "2026-07-10",
+        "imagen": "https://imagenes2.eltiempo.com/files/image_1200_535/uploads/2023/04/04/642cf193d2c9f.png",
+        "beneficios": [
+            "Diseño ilimitado",
+            "Plantillas premium",
+            "Elementos exclusivos",
+            "20GB de almacenamiento"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Canva",
+            "tipo": "servicio",
+            "sitioWeb": "canva.com"
+        }
+    },
+    {
+        "id": 14,
+        "servicio": "Adobe Creative Cloud",
+        "descripcion": "Acceso completo a todas las apps de Adobe",
+        "servicioId": 14,
+        "precioTotal": 60.00,
+        "precioPorPersona": 12.00,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-014",
+        "fechaPublicacion": "2026-07-12",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/250px-Adobe_Creative_Cloud_rainbow_icon.svg.png",
+        "beneficios": [
+            "Photoshop",
+            "Illustrator",
+            "Premiere Pro",
+            "100GB de almacenamiento"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Adobe",
+            "tipo": "servicio",
+            "sitioWeb": "adobe.com"
+        }
+    },
+    {
+        "id": 15,
+        "servicio": "Duolingo Plus",
+        "descripcion": "Acceso a Duolingo sin anuncios y más funciones",
+        "servicioId": 15,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 6,
+        "espaciosOcupados": 3,
+        "organizadorId": "user-015",
+        "fechaPublicacion": "2026-07-14",
+        "imagen": "https://m.media-amazon.com/images/I/41cwNN2n2wL.png",
+        "beneficios": [
+            "Sin anuncios",
+            "Vidas ilimitadas",
+            "Lecciones avanzadas",
+            "Progreso personalizado"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Duolingo",
+            "tipo": "servicio",
+            "sitioWeb": "duolingo.com"
+        }
+    },
+    {
+        "id": 16,
+        "servicio": "LinkedIn Learning",
+        "descripcion": "Acceso a cursos profesionales en LinkedIn",
+        "servicioId": 16,
+        "precioTotal": 30.00,
+        "precioPorPersona": 6.00,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-016",
+        "fechaPublicacion": "2026-07-16",
+        "imagen": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Cursos profesionales",
+            "Certificaciones",
+            "Aprendizaje a tu ritmo",
+            "Proyectos prácticos"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "LinkedIn",
+            "tipo": "servicio",
+            "sitioWeb": "linkedin.com/learning"
+        }
+    },
+    {
+        "id": 17,
+        "servicio": "Gympass",
+        "descripcion": "Acceso a diferentes gimnasios con una membresía",
+        "servicioId": 17,
+        "precioTotal": 40.00,
+        "precioPorPersona": 8.00,
+        "espaciosTotal": 5,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-017",
+        "fechaPublicacion": "2026-07-18",
+        "imagen": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Acceso a múltiples gimnasios",
+            "Clases incluidas",
+            "App de seguimiento",
+            "Entrenadores virtuales"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Gympass",
+            "tipo": "servicio",
+            "sitioWeb": "gympass.com"
+        }
+    },
+    {
+        "id": 18,
+        "servicio": "Audible",
+        "descripcion": "Acceso a audiolibros ilimitados",
+        "servicioId": 18,
+        "precioTotal": 15.00,
+        "precioPorPersona": 3.75,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-018",
+        "fechaPublicacion": "2026-07-20",
+        "imagen": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Audiolibros ilimitados",
+            "Descarga offline",
+            "Contenido original",
+            "Recomendaciones personalizadas"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Audible",
+            "tipo": "servicio",
+            "sitioWeb": "audible.com"
+        }
+    },
+    {
+        "id": 19,
+        "servicio": "MasterClass",
+        "descripcion": "Acceso a clases de expertos en diferentes áreas",
+        "servicioId": 19,
+        "precioTotal": 20.00,
+        "precioPorPersona": 5.00,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-019",
+        "fechaPublicacion": "2026-07-22",
+        "imagen": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Clases de expertos",
+            "Contenido exclusivo",
+            "Material descargable",
+            "Comunidad de aprendizaje"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "MasterClass",
+            "tipo": "servicio",
+            "sitioWeb": "masterclass.com"
+        }
+    },
+    {
+        "id": 20,
+        "servicio": "Headspace",
+        "descripcion": "Acceso a meditaciones guiadas y ejercicios de respiración",
+        "servicioId": 20,
+        "precioTotal": 13.00,
+        "precioPorPersona": 3.25,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-020",
+        "fechaPublicacion": "2026-07-24",
+        "imagen": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Meditaciones guiadas",
+            "Sueño y relajación",
+            "Ejercicios de respiración",
+            "Progreso personalizado"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Headspace",
+            "tipo": "servicio",
+            "sitioWeb": "headspace.com"
+        }
+    },
+    {
+        "id": 21,
+        "servicio": "Discord Nitro",
+        "descripcion": "Plan premium de Discord con beneficios exclusivos",
+        "servicioId": 21,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-021",
+        "fechaPublicacion": "2026-07-26",
+        "imagen": "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Personalización avanzada",
+            "Emojis personalizados",
+            "Transmisiones HD",
+            "Más espacio para archivos"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Discord",
+            "tipo": "servicio",
+            "sitioWeb": "discord.com"
+        }
+    },
+    {
+        "id": 22,
+        "servicio": "Evernote Premium",
+        "descripcion": "Acceso a Evernote con todas sus funciones premium",
+        "servicioId": 22,
+        "precioTotal": 12.00,
+        "precioPorPersona": 3.00,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-022",
+        "fechaPublicacion": "2026-07-28",
+        "imagen": "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Notas ilimitadas",
+            "Almacenamiento 10GB",
+            "OCR en imágenes",
+            "Sincronización en tiempo real"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Evernote",
+            "tipo": "servicio",
+            "sitioWeb": "evernote.com"
+        }
+    },
+    {
+        "id": 23,
+        "servicio": "Todoist Pro",
+        "descripcion": "Acceso a Todoist con funciones avanzadas de productividad",
+        "servicioId": 23,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-023",
+        "fechaPublicacion": "2026-07-30",
+        "imagen": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Recordatorios ilimitados",
+            "Etiquetas y filtros",
+            "Proyectos compartidos",
+            "Historial de actividad"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Todoist",
+            "tipo": "servicio",
+            "sitioWeb": "todoist.com"
+        }
+    },
+    {
+        "id": 24,
+        "servicio": "Grammarly Premium",
+        "descripcion": "Acceso a Grammarly con corrección avanzada",
+        "servicioId": 24,
+        "precioTotal": 12.00,
+        "precioPorPersona": 3.00,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-024",
+        "fechaPublicacion": "2026-08-01",
+        "imagen": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=300&fit=crop",
+        "beneficios": [
+            "Corrección avanzada",
+            "Sugerencias de estilo",
+            "Detección de plagio",
+            "Integración con todas las apps"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Grammarly",
+            "tipo": "servicio",
+            "sitioWeb": "grammarly.com"
+        }
+    },
+    {
+        "id": 25,
+        "servicio": "Figma Professional",
+        "descripcion": "Acceso a Figma con herramientas avanzadas de diseño",
+        "servicioId": 25,
+        "precioTotal": 15.00,
+        "precioPorPersona": 3.75,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-025",
+        "fechaPublicacion": "2026-08-03",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/250px-Figma-logo.svg.png",
+        "beneficios": [
+            "Proyectos ilimitados",
+            "Equipos y colaboración",
+            "Historial de versiones",
+            "Recursos exclusivos"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Figma",
+            "tipo": "servicio",
+            "sitioWeb": "figma.com"
+        }
+    },
+    {
+        "id": 26,
+        "servicio": "LastPass Premium",
+        "descripcion": "Gestor de contraseñas premium con máxima seguridad",
+        "servicioId": 26,
+        "precioTotal": 10.00,
+        "precioPorPersona": 2.50,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-006",
+        "fechaPublicacion": "2026-08-05",
+        "imagen": "https://sm.pcmag.com/t/pcmag_uk/review/l/lastpass-p/lastpass-premium_hc3f.1920.jpg",
+        "beneficios": [
+            "Contraseñas ilimitadas",
+            "Almacenamiento seguro",
+            "Compartir contraseñas",
+            "Auditoría de seguridad"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "LastPass",
+            "tipo": "servicio",
+            "sitioWeb": "lastpass.com"
+        }
+    },
+    {
+        "id": 27,
+        "servicio": "Zoom Pro",
+        "descripcion": "Plan profesional de Zoom con reuniones ilimitadas",
+        "servicioId": 27,
+        "precioTotal": 15.00,
+        "precioPorPersona": 3.75,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 2,
+        "organizadorId": "user-007",
+        "fechaPublicacion": "2026-08-07",
+        "imagen": "https://tienda.softcontrols.es/30622-medium_default/licencia-zoom-pro.jpg",
+        "beneficios": [
+            "Reuniones de 24h",
+            "Grabación en la nube",
+            "Transcripción automática",
+            "Soporte prioritario"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Zoom",
+            "tipo": "servicio",
+            "sitioWeb": "zoom.us"
+        }
+    },
+    {
+        "id": 28,
+        "servicio": "Slack Pro",
+        "descripcion": "Plan profesional de Slack para equipos",
+        "servicioId": 28,
+        "precioTotal": 12.00,
+        "precioPorPersona": 3.00,
+        "espaciosTotal": 4,
+        "espaciosOcupados": 1,
+        "organizadorId": "user-008",
+        "fechaPublicacion": "2026-08-09",
+        "imagen": "https://sm.pcmag.com/t/pcmag_au/review/s/slack/slack_w9hb.1920.jpg",
+        "beneficios": [
+            "Historial ilimitado",
+            "Llamadas de grupo",
+            "Integraciones avanzadas",
+            "Almacenamiento 10GB"
+        ],
+        "estado": "activo",
+        "plataforma": {
+            "nombre": "Slack",
+            "tipo": "servicio",
+            "sitioWeb": "slack.com"
+        }
+    }
+]

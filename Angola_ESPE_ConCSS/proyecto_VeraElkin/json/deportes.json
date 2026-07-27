@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "nombre": "Fútbol",
+        "descripcion": "Deporte de equipo jugado con balón en una cancha",
+        "icono": "fa-futbol",
+        "imagen": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400&h=300&fit=crop",
+        "categoria": "equipo",
+        "popularidad": 95
+    },
+    {
+        "id": 2,
+        "nombre": "Básquet",
+        "descripcion": "Deporte de equipo jugado con balón y aros",
+        "icono": "fa-basketball",
+        "imagen": "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop",
+        "categoria": "equipo",
+        "popularidad": 80
+    },
+    {
+        "id": 3,
+        "nombre": "Ajedrez",
+        "descripcion": "Deporte de estrategia jugado en tablero",
+        "icono": "fa-chess",
+        "imagen": "https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=400&h=300&fit=crop",
+        "categoria": "individual",
+        "popularidad": 60
+    },
+    {
+        "id": 4,
+        "nombre": "Ping Pong",
+        "descripcion": "Deporte de raqueta jugado en mesa",
+        "icono": "fa-table-tennis",
+        "imagen": "https://www.competize.com/blog/wp-content/uploads/2021/02/Ping-Pong-Tenis-Mesa-reglas-basicas.jpg",
+        "categoria": "individual",
+        "popularidad": 55
+    },
+    {
+        "id": 5,
+        "nombre": "Gym",
+        "descripcion": "Entrenamiento físico con pesas y máquinas",
+        "icono": "fa-dumbbell",
+        "imagen": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop",
+        "categoria": "individual",
+        "popularidad": 70
+    }
+]
