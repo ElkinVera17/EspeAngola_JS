@@ -45,57 +45,6 @@
             <i class="fa-solid fa-cart-shopping fa-3x"></i>
             <p>Compra y vende productos de la universidad. ¡Sé un emprendedor!</p>
         </aside>
-        <!-- Acordeón informativo del Market -->
-        <div class="accordion mt-4" id="accordionMarket">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="fa-solid fa-circle-info me-2 text-success"></i> ¿Cómo funciona ESPEMarket?
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionMarket">
-                    <div class="accordion-body">
-                        <strong>ESPEMarket</strong> es el espacio de compra y venta exclusivo para la comunidad ESPE.
-                        Aquí puedes publicar productos que ya no uses o encontrar lo que necesitas entre estudiantes y
-                        docentes.
-                        Cada publicación debe incluir una imagen, precio y descripción clara.
-                        <br><br>
-                        <i class="fa-regular fa-circle-check text-success me-1"></i> <strong>Consejo:</strong> Revisa la
-                        reputación del vendedor antes de comprar y coordina la entrega en puntos seguros dentro del
-                        campus.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="fa-solid fa-shield-halved me-2 text-success"></i> Políticas de seguridad
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#accordionMarket">
-                    <div class="accordion-body">
-                        <strong>La seguridad de nuestra comunidad es prioridad.</strong>
-                        <ul class="text-start mt-2">
-                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Verifica la identidad del
-                                usuario con su correo @espe.edu.ec</li>
-                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> No compartas información
-                                personal sensible</li>
-                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Realiza las transacciones
-                                en lugares públicos del campus</li>
-                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Reporta cualquier
-                                publicación sospechosa</li>
-                        </ul>
-                        <p class="mt-2 mb-0">Si encuentras un producto fraudulento, contacta al <strong>soporte de
-                                ESPEMarket</strong> para tomar acciones.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
         <!-- Buscador -->
@@ -132,7 +81,8 @@
                 <fieldset>
                     <legend>Publicar Producto</legend>
                     <label for="nuevoProducto">Producto:</label>
-                   <input type="text" id="nuevoProducto" name="NuevoProducto" placeholder="Nombre del producto" required>
+                    <input type="text" id="nuevoProducto" name="NuevoProducto" placeholder="Nombre del producto"
+                        required>
 
                     <label for="nuevaCategoria">Categoría:</label>
                     <select id="nuevaCategoria" name="NuevaCategoria">
@@ -144,10 +94,12 @@
                     </select>
 
                     <label for="nuevoPrecio">Precio:</label>
-                   <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio" required min="0.01" step="0.01">
-                    
-                   <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="Descripcion" placeholder="Descripción del producto" required></textarea>
+                    <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio" required min="0.01"
+                        step="0.01">
+
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="Descripcion" placeholder="Descripción del producto"
+                        required></textarea>
 
                     <label for="imagen">Imagen:</label>
                     <input type="file" id="imagen" name="Imagen">
@@ -238,9 +190,16 @@
             </div>
         </div>
 
+
+        
+
+        <section class="grafico-market">
+            <h3>Productos más vendidos</h3>
+            <canvas id="graficoVentas" height="120"></canvas>
+        </section>
+
         <!-- Productos más vendidos (galería simple) -->
         <section class="top-productos">
-            <h3>Productos más vendidos</h3>
             <div class="galeria-productos">
                 <img src="../img/ESPEMarket/Libro_Ingles.jpg" alt="Libros de Inglés">
                 <img src="../img/ESPEMarket/maquillaje.webp" alt="Maquillaje Premium">
@@ -251,49 +210,109 @@
             </div>
         </section>
 
-        <div class="modal fade" id="modalEditarProducto" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <section class="panel-resumen">
+            <button id="btnRestablecer" class="btn btn-outline-danger">
+                <i class="fa-solid fa-rotate-left"></i> Restablecer datos
+            </button>
+        </section>
 
-            <div class="modal-header">
-                <h5 class="modal-title">Editar producto</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <!-- Acordeón informativo del Market -->
+        <div class="accordion mt-4" id="accordionMarket">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <i class="fa-solid fa-circle-info me-2 text-success"></i> ¿Cómo funciona ESPEMarket?
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionMarket">
+                    <div class="accordion-body">
+                        <strong>ESPEMarket</strong> es el espacio de compra y venta exclusivo para la comunidad ESPE.
+                        Aquí puedes publicar productos que ya no uses o encontrar lo que necesitas entre estudiantes y
+                        docentes.
+                        Cada publicación debe incluir una imagen, precio y descripción clara.
+                        <br><br>
+                        <i class="fa-regular fa-circle-check text-success me-1"></i> <strong>Consejo:</strong> Revisa la
+                        reputación del vendedor antes de comprar y coordina la entrega en puntos seguros dentro del
+                        campus.
+                    </div>
+                </div>
             </div>
 
-            <div class="modal-body">
-                <form id="formEditarProducto">
-                    <input type="hidden" id="editId">
-
-                    <div class="mb-3">
-                        <label for="editNombre" class="form-label">Nombre:</label>
-                        <input type="text" id="editNombre" class="form-control" required>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <i class="fa-solid fa-shield-halved me-2 text-success"></i> Políticas de seguridad
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionMarket">
+                    <div class="accordion-body">
+                        <strong>La seguridad de nuestra comunidad es prioridad.</strong>
+                        <ul class="text-start mt-2">
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Verifica la identidad del
+                                usuario con su correo @espe.edu.ec</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> No compartas información
+                                personal sensible</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Realiza las transacciones
+                                en lugares públicos del campus</li>
+                            <li><i class="fa-regular fa-circle-check text-success me-2"></i> Reporta cualquier
+                                publicación sospechosa</li>
+                        </ul>
+                        <p class="mt-2 mb-0">Si encuentras un producto fraudulento, contacta al <strong>soporte de
+                                ESPEMarket</strong> para tomar acciones.</p>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="editCategoria" class="form-label">Categoría:</label>
-                        <select id="editCategoria" class="form-select" required></select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editPrecio" class="form-label">Precio:</label>
-                        <input type="number" id="editPrecio" class="form-control" min="0.01" step="0.01" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editDescripcion" class="form-label">Descripción:</label>
-                        <textarea id="editDescripcion" class="form-control" required></textarea>
-                    </div>
-                </form>
+                </div>
             </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" form="formEditarProducto" class="btn btn-primary">Guardar cambios</button>
-            </div>
-
         </div>
-    </div>
-</div>
+
+
+        <div class="modal fade" id="modalEditarProducto" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Editar producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="formEditarProducto">
+                            <input type="hidden" id="editId">
+
+                            <div class="mb-3">
+                                <label for="editNombre" class="form-label">Nombre:</label>
+                                <input type="text" id="editNombre" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="editCategoria" class="form-label">Categoría:</label>
+                                <select id="editCategoria" class="form-select" required></select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="editPrecio" class="form-label">Precio:</label>
+                                <input type="number" id="editPrecio" class="form-control" min="0.01" step="0.01"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="editDescripcion" class="form-label">Descripción:</label>
+                                <textarea id="editDescripcion" class="form-control" required></textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" form="formEditarProducto" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </main>
 
@@ -308,7 +327,7 @@
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
     <script src="../js/market.js"></script>
     <script src="../js/perfil.js"></script>
 </body>

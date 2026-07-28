@@ -7,6 +7,9 @@ const formPublicar = document.querySelector(".publicar-market form");
 const modalEditarProducto = new bootstrap.Modal(document.getElementById("modalEditarProducto"));
 const formEditarProducto = document.getElementById("formEditarProducto");
 
+const botonRestablecer = document.getElementById("btnRestablecer");
+let grafico = null;
+
 const CLAVE_STORAGE = "productosMarket";
 const IMAGEN_DEFECTO = "../img/img-default.png";
 
@@ -94,6 +97,7 @@ function crearTarjetas(arregloProductos) {
         const categoria = categorias.find(cat => cat.id === producto.categoriaId);
         crearTarjetaProducto(producto, categoria);
     }
+    renderizarGrafico();
 }
 
 function crearTarjetaProducto(producto, categoria) {
@@ -282,6 +286,84 @@ function guardarEdicionProducto(evento) {
         });
     });
 }
+
+
+
+function renderizarGrafico() {
+    const topProductos = [...productos]
+        .sort((a, b) => b.likes - a.likes)
+        .slice(0, 8);
+
+    const etiquetas = topProductos.map(p => p.nombre);
+    const datos = topProductos.map(p => p.likes);
+
+    const ctx = document.getElementById("graficoVentas");
+
+    if (grafico) {
+        grafico.data.labels = etiquetas;
+        grafico.data.datasets[0].data = datos;
+        grafico.update();
+        return;
+    }
+
+    grafico = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: etiquetas,
+            datasets: [{
+                label: "Ventas simuladas (likes)",
+                data: datos,
+                backgroundColor: "rgba(11, 114, 49, 0.7)"
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+}
+
+function restablecerDatos() {
+    Swal.fire({
+        icon: "warning",
+        title: "¿Restablecer datos?",
+        text: "Se perderán los productos creados o editados y volverán los datos originales.",
+        showCancelButton: true,
+        confirmButtonText: "Sí, restablecer",
+        cancelButtonText: "Cancelar"
+    }).then(async resultado => {
+        if (!resultado.isConfirmed) return;
+
+        try {
+            const respProductos = await fetch("../json/productos.json");
+            if (!respProductos.ok) {
+                throw new Error("No se pudo obtener la informacion");
+            }
+            productos = await respProductos.json();
+            guardarProductos();
+
+            llenarSelectCategorias();
+            buscar();
+
+            Swal.fire({
+                icon: "success",
+                title: "Datos restablecidos",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } catch (error) {
+            console.error("Tu error es", error);
+            Swal.fire({
+                icon: "error",
+                title: "No se pudo restablecer",
+                text: "Intenta nuevamente."
+            });
+        }
+    });
+}
+
+botonRestablecer.addEventListener("click", restablecerDatos);
 
 document.addEventListener("DOMContentLoaded", cargarProductos);
 inputBuscarProducto.addEventListener("input", buscar);
