@@ -1,4 +1,16 @@
 const contenedorEventos = document.querySelector(".cards-container");
+const inputBuscarEvento = document.getElementById("buscarEvento");
+const selectFiltroDeporte = document.getElementById("filtroDeporte");
+const inputFiltroFecha = document.getElementById("filtroFecha");
+const selectOrdenarEventos = document.getElementById("ordenarEventos");
+document.addEventListener("DOMContentLoaded", cargarEventos);
+inputBuscarEvento.addEventListener("input", buscar);
+selectFiltroDeporte.addEventListener("change", buscar);
+inputFiltroFecha.addEventListener("change", buscar);
+selectOrdenarEventos.addEventListener("change", buscar);
+
+let eventos = [];
+let deportes = [];
 
 async function cargarEventos() {
     try {
@@ -11,17 +23,65 @@ async function cargarEventos() {
             throw new Error("No se pudo obtener la informacion");
         }
 
-        const eventos = await respEventos.json();
-        const deportes = await respDeportes.json();
+        eventos = await respEventos.json();
+        deportes = await respDeportes.json();
 
-        contenedorEventos.innerHTML = "";
-        for (const evento of eventos) {
-            const deporte = deportes.find(dep => dep.id === evento.deporteId);
-            crearTarjetaEvento(evento, deporte);
-        }
+        llenarSelectDeportes();
+        crearTarjetas(eventos);
     } catch (error) {
         console.error("Tu error es", error);
         contenedorEventos.innerHTML = "<p>No se pudieron cargar los eventos.</p>";
+    }
+}
+
+function llenarSelectDeportes() {
+    for (const deporte of deportes) {
+        const opcion = document.createElement("option");
+        opcion.value = deporte.id;
+        opcion.textContent = deporte.nombre;
+        selectFiltroDeporte.appendChild(opcion);
+    }
+}
+
+function buscar() {
+    const termino = inputBuscarEvento.value.trim().toLowerCase();
+    const deporteId = selectFiltroDeporte.value;
+    const fecha = inputFiltroFecha.value;
+    const orden = selectOrdenarEventos.value;
+
+    let resultado = eventos.filter(evento => {
+        const coincideTexto =
+            evento.nombre.toLowerCase().includes(termino) ||
+            evento.lugar.toLowerCase().includes(termino);
+        const coincideDeporte = deporteId ? evento.deporteId === Number(deporteId) : true;
+        const coincideFecha = fecha ? evento.fecha === fecha : true;
+        return coincideTexto && coincideDeporte && coincideFecha;
+    });
+
+    if (orden === "fecha-asc") {
+        resultado.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+    } else if (orden === "fecha-desc") {
+        resultado.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+    } else if (orden === "inscritos-asc") {
+        resultado.sort((a, b) => a.inscritos - b.inscritos);
+    } else if (orden === "inscritos-desc") {
+        resultado.sort((a, b) => b.inscritos - a.inscritos);
+    }
+
+    crearTarjetas(resultado);
+}
+
+function crearTarjetas(arregloEventos) {
+    contenedorEventos.innerHTML = "";
+
+    if (arregloEventos.length === 0) {
+        contenedorEventos.innerHTML = "<p>No se encontraron eventos.</p>";
+        return;
+    }
+
+    for (const evento of arregloEventos) {
+        const deporte = deportes.find(dep => dep.id === evento.deporteId);
+        crearTarjetaEvento(evento, deporte);
     }
 }
 
@@ -43,4 +103,3 @@ function crearTarjetaEvento(evento, deporte) {
     contenedorEventos.appendChild(articulo);
 }
 
-document.addEventListener("DOMContentLoaded", cargarEventos);

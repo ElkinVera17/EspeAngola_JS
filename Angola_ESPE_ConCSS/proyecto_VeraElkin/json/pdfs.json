@@ -1,0 +1,80 @@
+[
+    {
+        "id": 1,
+        "titulo": "Examen Práctico - Parcial 1",
+        "profesor": "Juan Pérez",
+        "carrera": "ITIN",
+        "materia": "Matemáticas",
+        "fecha": "2025-11-15",
+        "descargas": 234,
+        "calificacion": 4.8,
+        "comentario": "Excelente",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+    },
+    {
+        "id": 2,
+        "titulo": "Examen Práctico - Parcial 1",
+        "profesor": "Carlos Medina",
+        "carrera": "ITIN",
+        "materia": "Fundamentos Web",
+        "fecha": "2025-10-28",
+        "descargas": 185,
+        "calificacion": 4.7,
+        "comentario": "Muy Bueno",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.learningcontainer.com/wp-content/uploads/2019/09/sample-pdf-file.pdf"
+    },
+    {
+        "id": 3,
+        "titulo": "Guía de Estudio",
+        "profesor": "María López",
+        "carrera": "ITIN",
+        "materia": "Física",
+        "fecha": "2025-09-18",
+        "descargas": 96,
+        "calificacion": 4.5,
+        "comentario": "Bueno",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.orimi.com/pdf-test.pdf"
+    },
+    {
+        "id": 4,
+        "titulo": "Examen Final",
+        "profesor": "Luis Andrade",
+        "carrera": "ITIN",
+        "materia": "Programación",
+        "fecha": "2025-08-22",
+        "descargas": 542,
+        "calificacion": 5.0,
+        "comentario": "Excelente",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+    },
+    {
+        "id": 5,
+        "titulo": "Banco de Preguntas",
+        "profesor": "Ana Torres",
+        "carrera": "ITIN",
+        "materia": "Redes",
+        "fecha": "2025-07-10",
+        "descargas": 318,
+        "calificacion": 4.6,
+        "comentario": "Muy Bueno",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.learningcontainer.com/wp-content/uploads/2019/09/sample-pdf-file.pdf"
+    },
+    {
+        "id": 6,
+        "titulo": "Taller Resuelto",
+        "profesor": "Pedro Vargas",
+        "carrera": "ITIN",
+        "materia": "Bases de Datos",
+        "fecha": "2025-06-05",
+        "descargas": 127,
+        "calificacion": 4.4,
+        "comentario": "Bueno",
+        "icono": "../img/ESPEAcademic/pdf.png",
+        "pdf": "https://www.learningcontainer.com/wp-content/uploads/2019/09/sample-pdf-file.pdf"
+    }
+]

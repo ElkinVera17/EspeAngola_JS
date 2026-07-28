@@ -55,32 +55,22 @@
             <p>Pronto habrá más espacios para practicar deportes</p>
         </details>
 
-        <section class="search-section">
-            <form action="#" method="get">
-                <fieldset>
-                    <legend>Buscar Evento Deportivo</legend>
-                    <label for="deporte">Deporte:</label>
-                    <select id="deporte" name="Deporte">
-                        <option value="1">Fútbol</option>
-                        <option value="2">Básquet</option>
-                        <option value="3">Ajedrez</option>
-                        <option value="4">Ping Pong</option>
-                        <option value="5">Gym</option>
-                    </select>
-                    <br><br>
-                    <label for="fecha">Fecha:</label>
-                    <input type="date" id="fecha" name="Fecha">
-                    <br><br>
-                    <label for="lugar">Lugar:</label>
-                    <input type="text" id="lugar" name="Lugar" placeholder="Lugar del evento">
-                    <br><br>
-                    <label for="participantes">Participantes:</label>
-                    <input type="number" id="participantes" name="Participantes" min="1" max="30"
-                        placeholder="Cantidad">
-                    <br><br>
-                    <button type="submit">Buscar</button>
-                </fieldset>
-            </form>
+        <section class="toolbar-busqueda">
+            <input type="text" id="buscarEvento" class="form-control" placeholder="Buscar evento o lugar...">
+
+            <select id="filtroDeporte" class="form-select">
+                <option value="">Todos los deportes</option>
+            </select>
+
+            <input type="date" id="filtroFecha" class="form-control">
+
+            <select id="ordenarEventos" class="form-select">
+                <option value="">Ordenar por...</option>
+                <option value="fecha-asc">Fecha: más próxima</option>
+                <option value="fecha-desc">Fecha: más lejana</option>
+                <option value="inscritos-asc">Inscritos: menor a mayor</option>
+                <option value="inscritos-desc">Inscritos: mayor a menor</option>
+            </select>
         </section>
 
 
@@ -90,71 +80,8 @@
         </div>
 
         <h2>Eventos disponibles</h2>
-        <div class="cards-container">
 
-            <article class="card">
-                <img src="../img/ESPEDeportes/futbol.jpg" alt="Fútbol" width="200" height="100">
-                <h3>Partido de Fútbol 5v5</h3>
-                <p>Fútbol | Fecha: 2026-04-28 | 8 participantes</p>
-                <p>En la Cancha Principal</p>
-                <progress value="50" max="100"></progress><span> 50%</span>
-
-
-                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalInscripcion">
-                    Inscribirse
-                </button>
-
-            </article>
-
-            <article class="card">
-                <img src="../img/ESPEDeportes/basquet.jpg" alt="Básquet" width="200" height="100">
-                <h3>Torneo Interfacultades</h3>
-                <p>Básquet | Fecha: 2026-04-30 | 12 participantes</p>
-                <p>En el Coliseo ESPE</p>
-                <progress value="80" max="100"></progress><span> 80%</span>
-
-                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalInscripcion">
-                    Inscribirse
-                </button>
-
-            </article>
-
-            <article class="card">
-                <img src="../img/ESPEDeportes/Ajedrez.webp" alt="Ajedrez" width="200" height="100">
-                <h3>Torneo de Ajedrez</h3>
-                <p>Ajedrez | Fecha: 2026-05-02 | 16 participantes</p>
-                <p>En la Biblioteca ESPE</p>
-                <progress value="20" max="100"></progress><span> 20%</span>
-
-                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalInscripcion">
-                    Inscribirse
-                </button>
-            </article>
-
-            <article class="card">
-                <img src="../img/ESPEDeportes/pingpong.jpg" alt="Ping Pong" width="200" height="100">
-                <h3>Campeonato Ping Pong</h3>
-                <p>Ping Pong | Fecha: 2026-05-04 | 10 participantes</p>
-                <p>En el Área Recreativa</p>
-                <progress value="60" max="100"></progress><span> 60%</span>
-
-                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalInscripcion">
-                    Inscribirse
-                </button>
-            </article>
-
-            <article class="card">
-                <img src="../img/ESPEDeportes/gym.jpg" alt="Gym" width="200" height="100">
-                <h3>Entrenamiento Funcional</h3>
-                <p>Gym | Fecha: 2026-05-06 | 20 participantes</p>
-                <p>En el Gimnasio ESPE</p>
-                <progress value="40" max="100"></progress><span> 40%</span>
-
-                <button class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modalInscripcion">
-                    Inscribirse
-                </button>
-            </article>
-        </div>
+        <div class="cards-container"> </div>
 
         <section class="upload-section">
             <form action="#" method="get">
@@ -275,8 +202,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-        <script src="../js/deportes.js"></script>
-        <script src="../js/perfil.js"></script>
+    <script src="../js/deportes.js"></script>
+    <script src="../js/perfil.js"></script>
 </body>
 
 </html>

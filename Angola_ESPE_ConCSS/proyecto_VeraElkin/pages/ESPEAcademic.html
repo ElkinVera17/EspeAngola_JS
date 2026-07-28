@@ -50,126 +50,28 @@
                 hechas por el mismo ingeniero para el mismo tema</p>
         </details>
 
-        <section class="search-section">
-            <form action="#" method="get">
-                <fieldset>
-                    <legend>Buscador</legend>
-                    <label for="carrera">Carrera:</label>
-                    <select id="carrera" name="Carrera">
-                        <option value="1">ITIN</option>
-                        <option value="2">Agropecuaria</option>
-                        <option value="3">Biotecnologia</option>
-                    </select>
-                    <br><br>
-                    <label for="nivel">Nivel:</label>
-                    <input type="number" id="nivel" name="Semestre" min="1" placeholder="Semestre">
-                    <br><br>
-                    <label for="materia">Materia:</label>
-                    <select id="materia" name="Materia">
-                        <option value="1">EDO</option>
-                        <option value="2">POO</option>
-                        <option value="3">Calculo</option>
-                        <option value="4">Fisica</option>
-                        <option value="5">Computación digital</option>
-                        <option value="6">Liderazgo</option>
-                    </select>
-                    <br><br>
-                    <label for="profesor">Profesor:</label>
-                    <input type="text" id="profesor" name="Profesor" placeholder="Nombre del profesor">
-                    <br><br>
-                    <button type="submit">Buscar</button>
-                </fieldset>
-            </form>
+        <section class="toolbar-busqueda">
+            <input type="text" id="buscarPdf" class="form-control" placeholder="Buscar por título o profesor...">
+
+            <select id="filtroMateria" class="form-select">
+                <option value="">Todas las materias</option>
+            </select>
+
+            <select id="filtroCarrera" class="form-select">
+                <option value="">Todas las carreras</option>
+            </select>
+
+            <select id="ordenarPdfs" class="form-select">
+                <option value="">Ordenar por...</option>
+                <option value="fecha-desc">Más recientes</option>
+                <option value="fecha-asc">Más antiguos</option>
+                <option value="descargas-desc">Más descargados</option>
+                <option value="calificacion-desc">Mejor calificados</option>
+            </select>
         </section>
 
         <h2>Documentos disponibles</h2>
         <div class="cards-container">
-
-            <article class="card">
-                <img src="../img/ESPEAcademic/pdf.png" alt="Documento PDF" width="80" height="80">
-                <h3>Examen Practico - Parcial 1</h3>
-                <div class="container-fluid p-0">
-
-                    <div class="row g-2 mb-2"> <!-- gap y margen -->
-                        <div class="col-12">
-                            <span
-                                class="badge colorAcademic w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-folder-open me-1"></i> Matemáticas
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Fecha y Descargas  -->
-                    <div class="row g-2 mb-2">
-                        <div class="col-6"> <!-- siempre es 12 por eso 6 es 50%-->
-                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-calendar me-1"></i> Nov 2025
-                            </span>
-                        </div>
-                        <div class="col-6">
-                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-cloud-arrow-down me-1"></i> 234 descargas
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Fila 3: Calificación -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="rating mb-0 text-center"> <!-- text-center de Bootstrap -->
-                                <i class="fa-solid fa-star text-warning"></i> 4.5/5.0
-                                <span class="text-muted ms-2">(Excelente)</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="../Confirmación/Pdf_Descargado.html" class="btn btn-outline-info">Descargar</a>
-            </article>
-
-            <article class="card">
-                <img src="../img/ESPEAcademic/pdf.png" alt="Documento PDF" width="80" height="80">
-                <h3>Examen Practico - Parcial 1</h3>
-
-                <!-- Grid de Bootstrap  -->
-                <div class="container-fluid p-0">
-
-                    <div class="row g-2 mb-2"> <!-- gap y margen -->
-                        <div class="col-12">
-                            <span
-                                class="badge colorAcademic w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-folder-open me-1"></i> Fundamentos Web
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Fecha y Descargas  -->
-                    <div class="row g-2 mb-2">
-                        <div class="col-6"> <!-- siempre es 12 por eso 6 es 50%-->
-                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-calendar me-1"></i> Nov 2025
-                            </span>
-                        </div>
-                        <div class="col-6">
-                            <span class="badge colorpiel w-100 py-2 d-flex align-items-center justify-content-center">
-                                <i class="fa-regular fa-cloud-arrow-down me-1"></i> 234 descargas
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Fila 3: Calificación -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="rating mb-0 text-center"> <!-- text-center de Bootstrap -->
-                                <i class="fa-solid fa-star text-warning"></i> 4.5/5.0
-                                <span class="text-muted ms-2">(Excelente)</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIN -->
-
-                <a href="../Confirmación/Pdf_Descargado.html" class="btn btn-outline-info">Descargar</a>
             </article>
 
             <article class="card">
@@ -263,7 +165,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-<script src="../js/perfil.js"></script>
-    </body>
+    <script src="../js/perfil.js"></script>
+    <script src="../js/academico.js"></script>
+</body>
 
 </html>

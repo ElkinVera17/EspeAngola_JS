@@ -1,4 +1,16 @@
 const contenedorMembresias = document.querySelector(".membresias-container .d-flex");
+const inputBuscarMembresia = document.getElementById("buscarMembresia");
+const selectFiltroTipo = document.getElementById("filtroTipo");
+const selectFiltroEstado = document.getElementById("filtroEstado");
+const selectOrdenarMembresias = document.getElementById("ordenarMembresias");
+
+document.addEventListener("DOMContentLoaded", cargarMembresias);
+inputBuscarMembresia.addEventListener("input", buscar);
+selectFiltroTipo.addEventListener("change", buscar);
+selectFiltroEstado.addEventListener("change", buscar);
+selectOrdenarMembresias.addEventListener("change", buscar);
+
+let membresias = [];
 
 async function cargarMembresias() {
     try {
@@ -7,15 +19,65 @@ async function cargarMembresias() {
             throw new Error("No se pudo obtener la informacion");
         }
 
-        const membresias = await respuesta.json();
+        membresias = await respuesta.json();
 
-        contenedorMembresias.innerHTML = "";
-        for (const membresia of membresias) {
-            crearTarjetaMembresia(membresia);
-        }
+        llenarSelectTipos();
+        crearTarjetas(membresias);
     } catch (error) {
         console.error("Tu error es", error);
         contenedorMembresias.innerHTML = "<p>No se pudieron cargar las membresías.</p>";
+    }
+}
+
+function llenarSelectTipos() {
+    const tipos = [...new Set(membresias.map(m => m.plataforma.tipo))];
+
+    for (const tipo of tipos) {
+        const opcion = document.createElement("option");
+        opcion.value = tipo;
+        opcion.textContent = tipo.charAt(0).toUpperCase() + tipo.slice(1);
+        selectFiltroTipo.appendChild(opcion);
+    }
+}
+
+function buscar() {
+    const termino = inputBuscarMembresia.value.trim().toLowerCase();
+    const tipo = selectFiltroTipo.value;
+    const estado = selectFiltroEstado.value;
+    const orden = selectOrdenarMembresias.value;
+
+    let resultado = membresias.filter(membresia => {
+        const coincideNombre = membresia.servicio.toLowerCase().includes(termino);
+        const coincideTipo = tipo ? membresia.plataforma.tipo === tipo : true;
+        const coincideEstado = estado ? membresia.estado === estado : true;
+        return coincideNombre && coincideTipo && coincideEstado;
+    });
+
+    if (orden === "precio-asc") {
+        resultado.sort((a, b) => a.precioPorPersona - b.precioPorPersona);
+    } else if (orden === "precio-desc") {
+        resultado.sort((a, b) => b.precioPorPersona - a.precioPorPersona);
+    } else if (orden === "espacios-desc") {
+        resultado.sort((a, b) => {
+            const disponiblesA = a.espaciosTotal - a.espaciosOcupados;
+            const disponiblesB = b.espaciosTotal - b.espaciosOcupados;
+            return disponiblesB - disponiblesA;
+        });
+    }
+
+    crearTarjetas(resultado);
+}
+
+function crearTarjetas(arregloMembresias) {
+    contenedorMembresias.innerHTML = "";
+
+    if (arregloMembresias.length === 0) {
+        contenedorMembresias.innerHTML = "<p>No se encontraron membresías.</p>";
+        return;
+    }
+
+    for (const membresia of arregloMembresias) {
+        crearTarjetaMembresia(membresia);
     }
 }
 
@@ -52,4 +114,3 @@ function crearTarjetaMembresia(membresia) {
     contenedorMembresias.appendChild(div);
 }
 
-document.addEventListener("DOMContentLoaded", cargarMembresias);

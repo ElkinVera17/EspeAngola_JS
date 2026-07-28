@@ -114,18 +114,26 @@
 
         <!-- Buscar y Publicar -->
         <section class="formularios-members">
-            <form action="#" method="get" class="form-buscar">
-                <fieldset>
-                    <legend>Buscar Membresías</legend>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="Nombre" placeholder="Netflix, Spotify...">
-                    <br><br>
-                    <label for="precio">Precio máximo:</label>
-                    <input type="number" id="precio" name="Precio" placeholder="Precio máximo">
-                    <br><br>
-                    <button type="submit">Buscar</button>
-                </fieldset>
-            </form>
+            <section class="toolbar-busqueda">
+                <input type="text" id="buscarMembresia" class="form-control" placeholder="Buscar servicio...">
+
+                <select id="filtroTipo" class="form-select">
+                    <option value="">Todos los tipos</option>
+                </select>
+
+                <select id="filtroEstado" class="form-select">
+                    <option value="">Todos los estados</option>
+                    <option value="activo">Con espacios</option>
+                    <option value="completo">Completo</option>
+                </select>
+
+                <select id="ordenarMembresias" class="form-select">
+                    <option value="">Ordenar por...</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="espacios-desc">Más espacios disponibles</option>
+                </select>
+            </section>
 
             <form action="#" method="get" class="form-publicar">
                 <fieldset>
@@ -149,83 +157,6 @@
             <h2>Membresías disponibles</h2>
             <!-- cards-members -->
             <div class="d-flex flex-wrap justify-content-center gap-4">
-
-                <!-- Tarjeta 1: Netflix -->
-                <div class="card shadow-sm h-100 rounded" style="width: 18rem;">
-                    <img src="../img/ESPEMembers/Netflix-Logo.jpg" class="card-img-top" alt="Netflix">
-                    <div class="card-body text-center">
-                        <h5 class="card-title bg-success text-white p-2 rounded">Netflix Premium</h5>
-                        <p class="card-text mt-2">Organizado por Ana Rodríguez</p>
-                        <p class="espacios">
-                            <i class="fa-regular fa-user me-1"></i> Espacios: 2/4
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="fa-solid fa-display me-2"></i> 4K Ultra HD</li>
-                        <li class="list-group-item"><i class="fa-solid fa-mobile-screen me-2"></i> Hasta 4 pantallas
-                        </li>
-                        <li class="list-group-item"><i class="fa-solid fa-download me-2"></i> Descargas ilimitadas</li>
-                        <li class="list-group-item fw-bold text-warning fs-5">
-                            <i class="fa-solid fa-coins me-2"></i> $3.50 <small class="text-muted fs-6">/mes</small>
-                        </li>
-                    </ul>
-                    <div class="card-body text-center mt-auto">
-                        <a href="#" class="btn btn-success w-100">
-                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Spotify -->
-                <div class="card shadow-sm h-100" style="width: 18rem;">
-                    <img src="../img/ESPEMembers/Spotify.png" class="card-img-top" alt="Spotify">
-                    <div class="card-body text-center">
-                        <h5 class="card-title bg-success text-white p-2 rounded">Spotify Familiar</h5>
-                        <p class="card-text mt-2">Organizado por Carlos Méndez</p>
-                        <p class="espacios">
-                            <i class="fa-regular fa-user me-1"></i> Espacios: 1/6
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="fa-solid fa-ban me-2"></i> Sin anuncios</li>
-                        <li class="list-group-item"><i class="fa-solid fa-wifi me-2"></i> Música offline</li>
-                        <li class="list-group-item"><i class="fa-solid fa-star me-2"></i> Calidad Premium</li>
-                        <li class="list-group-item fw-bold text-warning fs-5">
-                            <i class="fa-solid fa-coins me-2"></i> $2.00 <small class="text-muted fs-6">/mes</small>
-                        </li>
-                    </ul>
-                    <div class="card-body text-center mt-auto">
-                        <a href="#" class="btn btn-success w-100">
-                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3: Amazon Prime -->
-                <div class="card shadow-sm h-100" style="width: 18rem;">
-                    <img src="../img/ESPEMembers/AmazonPrime.webp" class="card-img-top" alt="Amazon Prime">
-                    <div class="card-body text-center">
-                        <h5 class="card-title bg-success text-white p-2 rounded">Amazon Prime</h5>
-                        <p class="card-text mt-2">Organizado por Laura Torres</p>
-                        <p class="espacios">
-                            <i class="fa-regular fa-user me-1"></i> Espacios: 3/5
-                        </p>
-                    </div>
-                    <ul class="list-group list-group-flush text-center">
-                        <li class="list-group-item"><i class="fa-solid fa-video me-2"></i> Prime Video</li>
-                        <li class="list-group-item"><i class="fa-solid fa-music me-2"></i> Prime Music</li>
-                        <li class="list-group-item"><i class="fa-solid fa-truck me-2"></i> Envíos gratis</li>
-                        <li class="list-group-item fw-bold text-warning fs-5">
-                            <i class="fa-solid fa-coins me-2"></i> $2.50 <small class="text-muted fs-6">/mes</small>
-                        </li>
-                    </ul>
-                    <div class="card-body text-center mt-auto">
-                        <a href="#" class="btn btn-success w-100">
-                            <i class="fa-regular fa-circle-check me-2"></i> Unirse
-                        </a>
-                    </div>
-                </div>
-
             </div>
 
 
@@ -251,8 +182,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-        <script src="../js/members.js"></script>
-        <script src="../js/perfil.js"></script>
+    <script src="../js/members.js"></script>
+    <script src="../js/perfil.js"></script>
 
 </body>
 
