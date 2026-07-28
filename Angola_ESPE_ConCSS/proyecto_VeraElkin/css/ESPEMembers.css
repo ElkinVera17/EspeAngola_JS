@@ -205,8 +205,8 @@ aside p {
 
     .form-buscar,
     .form-publicar {
-        width: 380px;
-        max-width: 380px;
+        width: 500px;
+        min-width: 500px;
         padding: 20px;
     }
 }

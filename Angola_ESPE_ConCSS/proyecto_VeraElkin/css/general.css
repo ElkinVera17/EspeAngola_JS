@@ -127,6 +127,12 @@ main {
     padding: 16px 4px;
 }
 
+main {
+    min-height: 60vh;
+    padding: 16px 4px;
+    max-width: 1200px; /* Un ancho máximo para pantallas grandes */
+    margin: 0 auto; /* <--- ESTO CENTRA EL CONTENIDO PRINCIPAL */
+}
 section {
     margin: 12px auto;
     padding: 12px 8px;
@@ -396,7 +402,7 @@ meter {
    BLOQUE 13: REGLA DE 8PX PARA MÁRGENES Y PADDINGS
    ============================================================ */
 header, main, section, article, aside, footer {
-    margin: 8px 0;
+    
     padding: 8px 16px;
 }
 
@@ -469,7 +475,7 @@ footer:last-child {
     }
 
     section {
-        max-width: 1200px;
+    
         padding: 20px;
     }
 
@@ -501,7 +507,7 @@ footer:last-child {
 }
 
 @media (min-width: 1366px) { 
-    body {
+    
 
     nav {
         gap: 20px;
@@ -512,7 +518,7 @@ footer:last-child {
         font-size: 1.1rem;
         padding: 12px 32px;
     }
-}
+
 
 }
 
