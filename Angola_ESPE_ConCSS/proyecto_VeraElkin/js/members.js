@@ -3,23 +3,27 @@ const inputBuscarMembresia = document.getElementById("buscarMembresia");
 const selectFiltroTipo = document.getElementById("filtroTipo");
 const selectFiltroEstado = document.getElementById("filtroEstado");
 const selectOrdenarMembresias = document.getElementById("ordenarMembresias");
+const formPublicarMembresia = document.querySelector(".form-publicar");
 
-document.addEventListener("DOMContentLoaded", cargarMembresias);
-inputBuscarMembresia.addEventListener("input", buscar);
-selectFiltroTipo.addEventListener("change", buscar);
-selectFiltroEstado.addEventListener("change", buscar);
-selectOrdenarMembresias.addEventListener("change", buscar);
+const CLAVE_STORAGE = "membresiasComunidad";
+const IMAGEN_DEFECTO = "../img/img-default.png";
 
 let membresias = [];
 
 async function cargarMembresias() {
     try {
-        const respuesta = await fetch("../json/membresias.json");
-        if (!respuesta.ok) {
-            throw new Error("No se pudo obtener la informacion");
-        }
+        const guardadas = localStorage.getItem(CLAVE_STORAGE);
 
-        membresias = await respuesta.json();
+        if (guardadas) {
+            membresias = JSON.parse(guardadas);
+        } else {
+            const respuesta = await fetch("../json/membresias.json");
+            if (!respuesta.ok) {
+                throw new Error("No se pudo obtener la informacion");
+            }
+            membresias = await respuesta.json();
+            guardarMembresias();
+        }
 
         llenarSelectTipos();
         crearTarjetas(membresias);
@@ -29,7 +33,12 @@ async function cargarMembresias() {
     }
 }
 
+function guardarMembresias() {
+    localStorage.setItem(CLAVE_STORAGE, JSON.stringify(membresias));
+}
+
 function llenarSelectTipos() {
+    selectFiltroTipo.innerHTML = `<option value="">Todos los tipos</option>`;
     const tipos = [...new Set(membresias.map(m => m.plataforma.tipo))];
 
     for (const tipo of tipos) {
@@ -90,7 +99,11 @@ function crearTarjetaMembresia(membresia) {
     const div = document.createElement("div");
     div.className = "card shadow-sm h-100";
     div.style.width = "18rem";
+    div.style.position = "relative";
     div.innerHTML = `
+        <button class="btn-eliminar" data-id="${membresia.id}" title="Eliminar">
+            <i class="fa-solid fa-trash"></i>
+        </button>
         <img src="${membresia.imagen}" class="card-img-top" alt="${membresia.servicio}">
         <div class="card-body text-center">
             <h5 class="card-title bg-success text-white p-2 rounded">${membresia.servicio}</h5>
@@ -114,3 +127,103 @@ function crearTarjetaMembresia(membresia) {
     contenedorMembresias.appendChild(div);
 }
 
+function publicarMembresia(evento) {
+    evento.preventDefault();
+
+    const servicio = document.getElementById("servicio").value.trim();
+    const precioPorPersona = Number(document.getElementById("nuevoPrecio").value);
+    const espaciosTotal = Number(document.getElementById("espacios").value);
+    const archivoImagen = document.getElementById("imagenMembresia").files[0];
+
+    if (!servicio || !precioPorPersona || !espaciosTotal) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa servicio, precio y espacios."
+        });
+        return;
+    }
+
+    if (precioPorPersona <= 0 || espaciosTotal < 2) {
+        Swal.fire({
+            icon: "warning",
+            title: "Datos inválidos",
+            text: "El precio debe ser mayor a 0 y los espacios mínimo 2."
+        });
+        return;
+    }
+
+    const idNuevo = membresias.length > 0 ? Math.max(...membresias.map(m => m.id)) + 1 : 1;
+
+    const nuevaMembresia = {
+        id: idNuevo,
+        servicio,
+        descripcion: `Membresía compartida de ${servicio}`,
+        servicioId: idNuevo,
+        precioTotal: Number((precioPorPersona * espaciosTotal).toFixed(2)),
+        precioPorPersona,
+        espaciosTotal,
+        espaciosOcupados: 1,
+        organizadorId: "usuario-local",
+        fechaPublicacion: new Date().toISOString().split("T")[0],
+        imagen: archivoImagen ? URL.createObjectURL(archivoImagen) : IMAGEN_DEFECTO,
+        beneficios: ["Publicado por la comunidad"],
+        estado: "activo",
+        plataforma: {
+            nombre: servicio,
+            tipo: "servicio",
+            sitioWeb: ""
+        }
+    };
+
+    membresias.push(nuevaMembresia);
+    guardarMembresias();
+    llenarSelectTipos();
+    buscar();
+    formPublicarMembresia.reset();
+
+    Swal.fire({
+        icon: "success",
+        title: "Membresía publicada",
+        text: `"${servicio}" se agregó correctamente.`,
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
+function eliminarMembresia(evento) {
+    const boton = evento.target.closest(".btn-eliminar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const membresia = membresias.find(m => m.id === id);
+
+    Swal.fire({
+        icon: "warning",
+        title: "¿Eliminar membresía?",
+        text: `Se eliminará "${membresia.servicio}".`,
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (resultado.isConfirmed) {
+            membresias = membresias.filter(m => m.id !== id);
+            guardarMembresias();
+            buscar();
+            Swal.fire({
+                icon: "success",
+                title: "Eliminado",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", cargarMembresias);
+inputBuscarMembresia.addEventListener("input", buscar);
+selectFiltroTipo.addEventListener("change", buscar);
+selectFiltroEstado.addEventListener("change", buscar);
+selectOrdenarMembresias.addEventListener("change", buscar);
+formPublicarMembresia.addEventListener("submit", publicarMembresia);
+contenedorMembresias.addEventListener("click", eliminarMembresia);

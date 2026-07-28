@@ -3,28 +3,34 @@ const inputBuscarEvento = document.getElementById("buscarEvento");
 const selectFiltroDeporte = document.getElementById("filtroDeporte");
 const inputFiltroFecha = document.getElementById("filtroFecha");
 const selectOrdenarEventos = document.getElementById("ordenarEventos");
-document.addEventListener("DOMContentLoaded", cargarEventos);
-inputBuscarEvento.addEventListener("input", buscar);
-selectFiltroDeporte.addEventListener("change", buscar);
-inputFiltroFecha.addEventListener("change", buscar);
-selectOrdenarEventos.addEventListener("change", buscar);
+const formCrearEvento = document.querySelector(".upload-section form");
+
+const CLAVE_STORAGE = "eventosDeportivos";
+const IMAGEN_DEFECTO = "../img/img-default.png";
 
 let eventos = [];
 let deportes = [];
 
 async function cargarEventos() {
     try {
-        const [respEventos, respDeportes] = await Promise.all([
-            fetch("../json/eventos_deportivos.json"),
-            fetch("../json/deportes.json")
-        ]);
-
-        if (!respEventos.ok || !respDeportes.ok) {
+        const respDeportes = await fetch("../json/deportes.json");
+        if (!respDeportes.ok) {
             throw new Error("No se pudo obtener la informacion");
         }
-
-        eventos = await respEventos.json();
         deportes = await respDeportes.json();
+
+        const guardados = localStorage.getItem(CLAVE_STORAGE);
+
+        if (guardados) {
+            eventos = JSON.parse(guardados);
+        } else {
+            const respEventos = await fetch("../json/eventos_deportivos.json");
+            if (!respEventos.ok) {
+                throw new Error("No se pudo obtener la informacion");
+            }
+            eventos = await respEventos.json();
+            guardarEventos();
+        }
 
         llenarSelectDeportes();
         crearTarjetas(eventos);
@@ -34,7 +40,12 @@ async function cargarEventos() {
     }
 }
 
+function guardarEventos() {
+    localStorage.setItem(CLAVE_STORAGE, JSON.stringify(eventos));
+}
+
 function llenarSelectDeportes() {
+    selectFiltroDeporte.innerHTML = `<option value="">Todos los deportes</option>`;
     for (const deporte of deportes) {
         const opcion = document.createElement("option");
         opcion.value = deporte.id;
@@ -90,7 +101,11 @@ function crearTarjetaEvento(evento, deporte) {
 
     const articulo = document.createElement("article");
     articulo.className = "card";
+    articulo.style.position = "relative";
     articulo.innerHTML = `
+        <button class="btn-eliminar" data-id="${evento.id}" title="Eliminar">
+            <i class="fa-solid fa-trash"></i>
+        </button>
         <img src="${evento.imagen}" alt="${deporte ? deporte.nombre : evento.nombre}" width="200" height="100">
         <h3>${evento.nombre}</h3>
         <p>${deporte ? deporte.nombre : ""} | Fecha: ${evento.fecha} | ${evento.participantes} participantes</p>
@@ -103,3 +118,89 @@ function crearTarjetaEvento(evento, deporte) {
     contenedorEventos.appendChild(articulo);
 }
 
+function crearEvento(evento) {
+    evento.preventDefault();
+
+    const deporteId = Number(document.getElementById("nuevoDeporte").value);
+    const nombre = document.getElementById("nombreEvento").value.trim();
+    const fecha = document.getElementById("fechaEvento").value;
+    const lugar = document.getElementById("lugarEvento").value.trim();
+    const archivoImagen = document.getElementById("imagen").files[0];
+
+    if (!deporteId || !nombre || !fecha || !lugar) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa deporte, nombre, fecha y lugar."
+        });
+        return;
+    }
+
+    const idNuevo = eventos.length > 0 ? Math.max(...eventos.map(e => e.id)) + 1 : 1;
+
+    const nuevoEvento = {
+        id: idNuevo,
+        nombre,
+        descripcion: `Evento organizado por la comunidad ESPE`,
+        deporteId,
+        fecha,
+        hora: "00:00",
+        lugar,
+        capacidad: 20,
+        participantes: 0,
+        inscritos: 0,
+        estado: "abierto",
+        imagen: archivoImagen ? URL.createObjectURL(archivoImagen) : IMAGEN_DEFECTO,
+        organizadorId: "usuario-local"
+    };
+
+    eventos.push(nuevoEvento);
+    guardarEventos();
+    buscar();
+    formCrearEvento.reset();
+
+    Swal.fire({
+        icon: "success",
+        title: "Evento creado",
+        text: `"${nombre}" se agregó correctamente.`,
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
+function eliminarEvento(evento) {
+    const boton = evento.target.closest(".btn-eliminar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const eventoEncontrado = eventos.find(e => e.id === id);
+
+    Swal.fire({
+        icon: "warning",
+        title: "¿Eliminar evento?",
+        text: `Se eliminará "${eventoEncontrado.nombre}".`,
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (resultado.isConfirmed) {
+            eventos = eventos.filter(e => e.id !== id);
+            guardarEventos();
+            buscar();
+            Swal.fire({
+                icon: "success",
+                title: "Eliminado",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", cargarEventos);
+inputBuscarEvento.addEventListener("input", buscar);
+selectFiltroDeporte.addEventListener("change", buscar);
+inputFiltroFecha.addEventListener("change", buscar);
+selectOrdenarEventos.addEventListener("change", buscar);
+formCrearEvento.addEventListener("submit", crearEvento);
+contenedorEventos.addEventListener("click", eliminarEvento);

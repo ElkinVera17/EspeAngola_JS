@@ -450,3 +450,8 @@ body {
     border-color: #0b7231;
     box-shadow: 0 0 0 2px rgba(11, 114, 49, 0.15);
 }
+
+.card-producto {
+    position: relative;
+}
+

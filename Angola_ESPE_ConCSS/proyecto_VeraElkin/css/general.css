@@ -521,3 +521,36 @@ footer:last-child {
 }
 
 }
+
+.btn-eliminar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    max-width: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #dc3545;
+    color: white;
+
+    cursor: pointer;
+    z-index: 100;
+    flex: none;
+}
+
+.btn-eliminar:hover {
+    color: #dc3545;
+    background: #000000;
+}

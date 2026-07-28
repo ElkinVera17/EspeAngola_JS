@@ -128,10 +128,10 @@
                         <option value="2">Agropecuaria</option>
                         <option value="3">Biotecnologia</option>
                     </select>
-                    <br><br>
+                    
                     <label for="nivel2">Nivel:</label>
-                    <input type="number" id="nivel2" name="Semestre" max="8" min="1" placeholder="Semestre">
-                    <br><br>
+                  <input type="number" id="nivel2" name="Semestre" max="8" min="1" placeholder="Semestre" required>
+                    
                     <label for="materia2">Materia:</label>
                     <select id="materia2" name="Materia">
                         <option value="1">EDO</option>
@@ -141,13 +141,13 @@
                         <option value="5">Computación digital</option>
                         <option value="6">Liderazgo</option>
                     </select>
-                    <br><br>
+                  
                     <label for="profesor2">Profesor:</label>
-                    <input type="text" id="profesor2" name="Profesor" placeholder="Nombre del profesor">
-                    <br><br>
+                    <input type="text" id="profesor2" name="Profesor" placeholder="Nombre del profesor" required>
+                 
                     <label for="archivo">Archivo:</label>
                     <input type="file" id="archivo" name="Archivo">
-                    <br><br>
+                 
                     <button type="button" class="btn btn-outline-success">Limpiar</button>
                     <button type="submit" class="btn btn-outline-success">Subir</button>
                 </fieldset>
@@ -164,6 +164,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../js/perfil.js"></script>
     <script src="../js/academico.js"></script>

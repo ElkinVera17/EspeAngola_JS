@@ -3,23 +3,33 @@ const inputBuscarPdf = document.getElementById("buscarPdf");
 const selectFiltroMateria = document.getElementById("filtroMateria");
 const selectFiltroCarrera = document.getElementById("filtroCarrera");
 const selectOrdenarPdfs = document.getElementById("ordenarPdfs");
+const formNuevoArchivo = document.querySelector(".upload-section form");
 
-document.addEventListener("DOMContentLoaded", cargarPDFs);
-inputBuscarPdf.addEventListener("input", buscar);
-selectFiltroMateria.addEventListener("change", buscar);
-selectFiltroCarrera.addEventListener("change", buscar);
-selectOrdenarPdfs.addEventListener("change", buscar);
+const CLAVE_STORAGE = "pdfsAcademic";
+const ICONO_DEFECTO = "../img/ESPEAcademic/pdf.png";
+
+const NOMBRES_CARRERA = { "1": "ITIN", "2": "Agropecuaria", "3": "Biotecnologia" };
+const NOMBRES_MATERIA = {
+    "1": "EDO", "2": "POO", "3": "Calculo",
+    "4": "Fisica", "5": "Computación digital", "6": "Liderazgo"
+};
 
 let pdfs = [];
 
 async function cargarPDFs() {
     try {
-        const respuesta = await fetch("../json/pdfs.json");
-        if (!respuesta.ok) {
-            throw new Error("No se pudieron cargar los PDFs");
-        }
+        const guardados = localStorage.getItem(CLAVE_STORAGE);
 
-        pdfs = await respuesta.json();
+        if (guardados) {
+            pdfs = JSON.parse(guardados);
+        } else {
+            const respuesta = await fetch("../json/pdfs.json");
+            if (!respuesta.ok) {
+                throw new Error("No se pudieron cargar los PDFs");
+            }
+            pdfs = await respuesta.json();
+            guardarPDFs();
+        }
 
         llenarSelects();
         crearTarjetas(pdfs);
@@ -29,7 +39,14 @@ async function cargarPDFs() {
     }
 }
 
+function guardarPDFs() {
+    localStorage.setItem(CLAVE_STORAGE, JSON.stringify(pdfs));
+}
+
 function llenarSelects() {
+    selectFiltroMateria.innerHTML = `<option value="">Todas las materias</option>`;
+    selectFiltroCarrera.innerHTML = `<option value="">Todas las carreras</option>`;
+
     const materias = [...new Set(pdfs.map(pdf => pdf.materia))];
     const carreras = [...new Set(pdfs.map(pdf => pdf.carrera))];
 
@@ -92,7 +109,11 @@ function crearTarjetas(arregloPdfs) {
 function crearCard(pdf) {
     const articulo = document.createElement("article");
     articulo.className = "card";
+    articulo.style.position = "relative";
     articulo.innerHTML = `
+        <button class="btn-eliminar" data-id="${pdf.id}" title="Eliminar">
+            <i class="fa-solid fa-trash"></i>
+        </button>
         <img src="${pdf.icono}" alt="PDF" width="80" height="80">
         <h3>${pdf.titulo}</h3>
         <div class="container-fluid p-0">
@@ -138,3 +159,98 @@ function crearCard(pdf) {
     contenedorCards.appendChild(articulo);
 }
 
+function crearArchivo(evento) {
+    evento.preventDefault();
+
+    const carrera = NOMBRES_CARRERA[document.getElementById("carrera2").value];
+    const semestre = document.getElementById("nivel2").value;
+    const materia = NOMBRES_MATERIA[document.getElementById("materia2").value];
+    const profesor = document.getElementById("profesor2").value.trim();
+    const archivo = document.getElementById("archivo").files[0];
+
+    if (!carrera || !semestre || !materia || !profesor) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa carrera, semestre, materia y profesor."
+        });
+        return;
+    }
+
+    if (!archivo) {
+        Swal.fire({
+            icon: "warning",
+            title: "Falta el archivo",
+            text: "Debes subir un archivo PDF."
+        });
+        return;
+    }
+
+    const idNuevo = pdfs.length > 0 ? Math.max(...pdfs.map(p => p.id)) + 1 : 1;
+
+    const nuevoPdf = {
+        id: idNuevo,
+        titulo: `Documento - ${materia}`,
+        carrera,
+        semestre,
+        materia,
+        profesor,
+        fecha: new Date().toISOString().split("T")[0],
+        descargas: 0,
+        calificacion: 0,
+        comentario: "Sin calificar",
+        icono: ICONO_DEFECTO,
+        pdf: URL.createObjectURL(archivo)
+    };
+
+    pdfs.push(nuevoPdf);
+    guardarPDFs();
+    llenarSelects();
+    buscar();
+    formNuevoArchivo.reset();
+
+    Swal.fire({
+        icon: "success",
+        title: "Archivo subido",
+        text: `El documento de "${materia}" se agregó correctamente.`,
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
+function eliminarArchivo(evento) {
+    const boton = evento.target.closest(".btn-eliminar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const pdf = pdfs.find(p => p.id === id);
+
+    Swal.fire({
+        icon: "warning",
+        title: "¿Eliminar documento?",
+        text: `Se eliminará "${pdf.titulo}".`,
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (resultado.isConfirmed) {
+            pdfs = pdfs.filter(p => p.id !== id);
+            guardarPDFs();
+            buscar();
+            Swal.fire({
+                icon: "success",
+                title: "Eliminado",
+                timer: 1500,
+                showConfirmButton: false
+            });
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", cargarPDFs);
+inputBuscarPdf.addEventListener("input", buscar);
+selectFiltroMateria.addEventListener("change", buscar);
+selectFiltroCarrera.addEventListener("change", buscar);
+selectOrdenarPdfs.addEventListener("change", buscar);
+formNuevoArchivo.addEventListener("submit", crearArchivo);
+contenedorCards.addEventListener("click", eliminarArchivo);
