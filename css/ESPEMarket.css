@@ -1,0 +1,589 @@
+/* market.css - Versión limpia sin selectores complejos */
+
+
+/* ============================================================
+   BLOQUE 1: FONDO GENERAL DE LA PÁGINA
+   Define el color de fondo del marketplace.
+   ============================================================ */
+body {
+    background: #faf3e0;
+}
+
+
+/* ============================================================
+   BLOQUE 2: SECCIÓN DE BIENVENIDA
+   Mensaje principal de bienvenida para los usuarios.
+   ============================================================ */
+.bienvenida-market {
+    background: #0b7231;
+    color: white;
+    border-radius: 24px;
+    padding: 20px 16px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bienvenida-market h2 {
+    font-size: 1.2rem;
+}
+
+.bienvenida-market h2,
+.bienvenida-market p {
+    color: white;
+}
+
+
+/* ============================================================
+   BLOQUE 3: FORMULARIO DE BÚSQUEDA
+   Estilo del fieldset utilizado para buscar productos.
+   ============================================================ */
+.buscador-market fieldset {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #ffc857;
+    padding: 16px 14px;
+}
+
+
+/* ============================================================
+   BLOQUE 4: CONTENEDOR DE PRODUCTOS
+   Organiza las tarjetas usando Flexbox y distribución adaptable.
+   ============================================================ */
+.cards-productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+
+/* ============================================================
+   BLOQUE 5: TARJETAS DE PRODUCTOS
+   Define la estructura visual de cada producto.
+   ============================================================ */
+.card-producto {
+    background: white;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card-producto:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ============================================================
+   BLOQUE 6: IMÁGENES DE PRODUCTOS
+   Configura el área visual de cada imagen.
+   ============================================================ */
+.card-imagen {
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ============================================================
+   BLOQUE 7: INFORMACIÓN DEL PRODUCTO
+   Contiene nombre, descripción y datos generales.
+   ============================================================ */
+.card-info {
+    padding: 12px 14px;
+    text-align: center;
+}
+
+.card-info h3 {
+    color: #0b7231;
+    font-size: 1.05rem;
+    margin: 0 0 6px 0;
+}
+
+.card-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+
+/* ============================================================
+   BLOQUE 8: PRECIO DEL PRODUCTO
+   Resalta visualmente el costo del artículo.
+   ============================================================ */
+.precio {
+    font-size: 1.5rem;
+    color: #e67e22;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* ============================================================
+   BLOQUE 9: INDICADOR DE LIKES
+   Muestra la cantidad de reacciones positivas.
+   ============================================================ */
+.likes {
+    color: #e74c3c;
+    margin: 8px 0;
+}
+
+
+/* ============================================================
+   BLOQUE 10: BOTÓN AÑADIR AL CARRITO
+   Estilo principal y efecto hover del botón de compra.
+   ============================================================ */
+.btn-carrito {
+    display: block;
+    background: #0b7231;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 40px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    transition: background 0.2s;
+}
+
+.btn-carrito:hover {
+    background: #e67e22;
+}
+
+
+/* ============================================================
+   BLOQUE 11: FORMULARIO PUBLICAR PRODUCTO
+   Apariencia del fieldset para registrar nuevos productos.
+   ============================================================ */
+.publicar-market fieldset {
+    background: white;
+    border-radius: 28px;
+    border: 1px solid #ffc857;
+    padding: 25px;
+}
+
+
+/* ============================================================
+   BLOQUE 12: SECCIÓN PRODUCTOS DESTACADOS
+   Área para mostrar los artículos más vendidos.
+   ============================================================ */
+.top-productos {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.top-productos h3 {
+    color: #0b7231;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+
+/* ============================================================
+   BLOQUE 13: GALERÍA DE PRODUCTOS
+   Distribuye y estiliza las imágenes destacadas.
+   ============================================================ */
+
+/*antes flex-ahora grid*/
+.galeria-productos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    justify-items: center;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--card-bg-light);
+    border-radius: 20px;
+}
+
+.galeria-productos img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.galeria-productos img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+
+/* ============================================================
+   BLOQUE 14: DISEÑO RESPONSIVE
+   Ajustes para dispositivos móviles y pantallas pequeñas.
+   ============================================================ */
+@media (min-width: 700px) {
+    .card-producto {
+        width: 280px;
+        max-width: 280px;
+    }
+
+    .galeria-productos {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .galeria-productos img {
+        height: 150px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .galeria-productos {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* ============================================================
+   BLOQUE 15: BOTÓN VOLVER ARRIBA
+   Permite regresar rápidamente al inicio.
+   ============================================================ */
+
+.arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--espe-green);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Carrito{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--espe-green);
+    color: var(--white);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================================
+   BLOQUE: CARRITO DE COMPRAS
+   Contador flotante y resumen dentro del offcanvas.
+   ============================================================ */
+.badge-carrito {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #e67e22;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.lista-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2px;
+}
+
+.item-carrito {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 10px 12px;
+    color: white;
+}
+
+.item-carrito .fila-nombre {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.item-carrito .nombre-producto {
+    font-size: 0.9rem;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.item-carrito .subtotal-producto {
+    color: #ffc857;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.item-carrito .fila-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.item-carrito .precio-unitario {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button.btn-cantidad {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #0b7231;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+}
+
+button.btn-cantidad:hover {
+    background: #e67e22;
+}
+
+.control-cantidad .valor-cantidad {
+    min-width: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+button.btn-quitar-carrito {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: #bbb;
+    padding: 20px 0;
+}
+
+.resumen-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: white;
+    font-size: 1.05rem;
+    margin-top: 12px;
+}
+/* ============================================================
+   BLOQUE 16: Titulo ID 
+   ============================================================ */
+   #titulo{
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: uppercase;
+   }
+
+   .publicar-market {
+    margin: 20px 0;
+}
+
+.publicar-market fieldset {
+    background: white;
+    border-radius: 28px;
+    border: 2px solid #ffc857;
+    padding: 20px 16px;
+}
+
+.publicar-market legend {
+    background: #0b7231;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Estilo especial para el legend "Privado" */
+.legend-privado {
+    background: #e67e22;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 16px;
+    display: inline-block;
+}
+
+/* Contenedor de cada campo */
+.campo-formulario {
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.campo-formulario label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    color: #1e4a2a;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.campo-formulario textarea {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d4d0be;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: #fefcf5;
+    transition: border-color 0.3s;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus,
+.campo-formulario textarea:focus {
+    border-color: #0b7231;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(11, 114, 49, 0.15);
+}
+
+.campo-formulario textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.campo-formulario input[type="file"] {
+    padding: 8px;
+    border: 1px dashed #0b7231;
+    background: #f0f5ea;
+    border-radius: 12px;
+}
+
+/* Botón Publicar */
+.publicar-market button[type="submit"] {
+    background: #0b7231;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+    margin-top: 8px;
+}
+
+.publicar-market button[type="submit"]:hover {
+    background: #e67e22;
+    transform: scale(1.02);
+}
+
+/* ============================================================
+   BLOQUE: RESPONSIVE PARA MÓVIL
+   ============================================================ */
+@media (max-width: 600px) {
+    .publicar-market fieldset {
+        padding: 16px 12px;
+    }
+
+    .publicar-market legend {
+        font-size: 0.8rem;
+    }
+
+    .campo-formulario label {
+        font-size: 0.8rem;
+    }
+
+    .campo-formulario input,
+    .campo-formulario select,
+    .campo-formulario textarea {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
+    .publicar-market button[type="submit"] {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .publicar-market fieldset {
+        padding: 30px 24px;
+    }
+
+    .publicar-market button[type="submit"] {
+        width: auto;
+        min-width: 200px;
+    }
+}
+
+
+.toolbar-busqueda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    margin: 1.5rem auto;
+    max-width: 900px;
+}
+
+.toolbar-busqueda input,
+.toolbar-busqueda select {
+    border-radius: 1.5rem;
+    border: 1px solid #ddd;
+    padding: 0.5rem 1rem;
+    flex: 1 1 180px;
+    max-width: 220px;
+}
+
+.toolbar-busqueda input:focus,
+.toolbar-busqueda select:focus {
+    outline: none;
+    border-color: #0b7231;
+    box-shadow: 0 0 0 2px rgba(11, 114, 49, 0.15);
+}
+
+.card-producto {
+    position: relative;
+}

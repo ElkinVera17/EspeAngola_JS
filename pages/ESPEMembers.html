@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESPEMembers</title>
+    <!-- Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CSS-->
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/ESPEMembers.css">
+    <!-- ICONOS-->
+    <link rel="icon" href="../img/ESPEMembers/Miembros.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>ESPE Members</h1>
+        <div id="perfilUsuario"></div>
+    </header>
+
+    <figure>
+        <img src="../img/espe.png" alt="Logo Espe" width="200" height="100">
+        <figcaption>Universidad de las Fuerzas Armadas Espe</figcaption>
+    </figure>
+
+    <nav>
+        <a href="../Principal/Angola.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-house"></i> Página Principal </a>
+        <a href="../pages/ESPEAcademic.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-graduation-cap"></i> Academico </a>
+        <a href="../pages/ESPEDeportes.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-futbol"></i> Deportes </a>
+        <a href="../pages/ESPEMarket.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" -->
+            <i class="fa-solid fa-cart-shopping"></i> Market </a>
+        <a href="#"> <i class="fa-solid fa-users"></i> Members </a>
+        <a href="../index.html"><!-- style="color:aliceblue ; text-decoration:none ; margin-right: 10px;" --> <i
+                class="fa-solid fa-sign-out-alt"></i> Salir </a>
+    </nav>
+
+
+    <main>
+
+        <aside>
+            <h2>Bienvenido a ESPEMembers</h2>
+            <i class="fa-solid fa-users fa-3x"></i>
+            <p>Sube de status con lo más premium al mejor precio compartido</p>
+        </aside>
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Slide 1: TEXTO -->
+                <div class="carousel-item active">
+                    <div class="carousel-fixed-item">
+                        <div class="carousel-text-content">
+                            <h2> <i class="fa-solid fa-crown me-2"></i> Bienvenido a ESPEMembers</h2>
+                            <p>El lugar más <b>exclusivo</b> de la ESPE</p>
+                            <p class="mt-3" style="font-size: 1rem; opacity:0.8;">
+                                <i class="fa-solid fa-circle-check me-1"></i> Comparte y ahorra en tus servicios
+                                favoritos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: VIDEO -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <!-- El video se centrará y se recortará para llenar el contenedor -->
+                        <video src="../video/6474633-uhd_4096_2160_25fps.mp4" autoplay muted loop playsinline>
+                            Tu navegador no soporta el elemento video.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Slide 3: IMAGEN 1 (epic.jpg) -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <img src="../img/ESPEMembers/epic.jpg" alt="Imagen épica">
+                    </div>
+                </div>
+
+                <!-- Slide 4: IMAGEN 2 (netflix.png) -->
+                <div class="carousel-item">
+                    <div class="carousel-fixed-item">
+                        <img src="../img/ESPEMembers/netflix.png" alt="Netflix">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CONTROLES DEL CARRUSEL -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- FIN DEL CARRUSEL MEJORADO -->
+
+
+        <!-- Buscar y Publicar -->
+        <section class="formularios-members">
+
+
+            <section class="toolbar-busqueda">
+                <input type="text" id="buscarMembresia" class="form-control" placeholder="Buscar servicio...">
+
+                <select id="filtroTipo" class="form-select">
+                    <option value="">Todos los tipos</option>
+                </select>
+
+                <select id="filtroEstado" class="form-select">
+                    <option value="">Todos los estados</option>
+                    <option value="activo">Con espacios</option>
+                    <option value="completo">Completo</option>
+                </select>
+
+                <select id="ordenarMembresias" class="form-select">
+                    <option value="">Ordenar por...</option>
+                    <option value="precio-asc">Precio: menor a mayor</option>
+                    <option value="precio-desc">Precio: mayor a menor</option>
+                    <option value="espacios-desc">Más espacios disponibles</option>
+                </select>
+            </section>
+
+
+        </section>
+
+        <!-- Listado de membresías (tarjetas dentro de articles) -->
+        <section class="membresias-container">
+            <h2>Membresías disponibles</h2>
+            <!-- cards-members -->
+            <div class="d-flex flex-wrap justify-content-center gap-4">
+            </div>
+
+
+            </div>
+        </section>
+        
+        <form action="#" method="get" class="form-publicar">
+            <fieldset>
+
+                <legend>Publicar Membresía</legend>
+                <label for="servicio">Servicio:</label>
+                <input type="text" id="servicio" name="Servicio" placeholder="Netflix, Spotify..." required>
+
+                <label for="nuevoPrecio">Precio:</label>
+                <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio por persona" required
+                    min="0.01" step="0.01">
+
+                <label for="espacios">Espacios:</label>
+                <input type="number" id="espacios" name="Espacios" placeholder="Cantidad" required min="2" max="10">
+
+                <label for="imagenMembresia">Imagen:</label>
+                <input type="file" id="imagenMembresia" name="ImagenMembresia">
+
+                <button type="submit">Publicar</button>
+            </fieldset>
+        </form>
+
+
+    </main>
+    <a href="#" class="arriba"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <div class="modal fade" id="modalEditarMembresia" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar membresía</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="formEditarMembresia">
+                        <input type="hidden" id="editId">
+
+                        <div class="mb-3">
+                            <label for="editServicio" class="form-label">Servicio:</label>
+                            <input type="text" id="editServicio" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editPrecioPersona" class="form-label">Precio por persona:</label>
+                            <input type="number" id="editPrecioPersona" class="form-control" min="0.01" step="0.01"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editEspaciosTotal" class="form-label">Espacios totales:</label>
+                            <input type="number" id="editEspaciosTotal" class="form-control" min="2" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editEspaciosOcupados" class="form-label">Espacios ocupados:</label>
+                            <input type="number" id="editEspaciosOcupados" class="form-control" min="0" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="formEditarMembresia" class="btn btn-primary">Guardar cambios</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <!-- style="background-color: rgb(11, 114, 49); color: white; padding: 10px; width: 100%; text-align: center;" -->
+        <p>&copy; 2026 Espe. Todos los derechos reservados</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../js/members.js"></script>
+    <script src="../js/perfil.js"></script>
+
+
+</body>
+
+</html>
