@@ -4,6 +4,8 @@ const selectFiltroCategoria = document.getElementById("filtroCategoria");
 const inputFiltroPrecio = document.getElementById("filtroPrecio");
 const selectOrdenar = document.getElementById("ordenarProductos");
 const formPublicar = document.querySelector(".publicar-market form");
+const modalEditarProducto = new bootstrap.Modal(document.getElementById("modalEditarProducto"));
+const formEditarProducto = document.getElementById("formEditarProducto");
 
 const CLAVE_STORAGE = "productosMarket";
 const IMAGEN_DEFECTO = "../img/img-default.png";
@@ -98,9 +100,14 @@ function crearTarjetaProducto(producto, categoria) {
     const articulo = document.createElement("article");
     articulo.className = "card-producto";
     articulo.innerHTML = `
-        <button class="btn-eliminar" data-id="${producto.id}" title="Eliminar">
-            <i class="fa-solid fa-trash"></i>
-        </button>
+        <div class="acciones-card">
+            <button class="btn-editar" data-id="${producto.id}" title="Editar">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="btn-eliminar" data-id="${producto.id}" title="Eliminar">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
         <div class="card-imagen" style="background-image: url('${producto.imagen}');"></div>
         <div class="card-info">
             <span class="badge">${categoria ? categoria.nombre : "Sin categoría"}</span>
@@ -198,6 +205,84 @@ function eliminarProducto(evento) {
     });
 }
 
+
+
+function abrirModalEditar(evento) {
+    const boton = evento.target.closest(".btn-editar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const producto = productos.find(p => p.id === id);
+    if (!producto) return;
+
+    document.getElementById("editId").value = producto.id;
+    document.getElementById("editNombre").value = producto.nombre;
+    document.getElementById("editPrecio").value = producto.precio;
+    document.getElementById("editDescripcion").value = producto.descripcion;
+
+    const selectCategoria = document.getElementById("editCategoria");
+    selectCategoria.innerHTML = categorias
+        .map(cat => `<option value="${cat.id}" ${cat.id === producto.categoriaId ? "selected" : ""}>${cat.nombre}</option>`)
+        .join("");
+
+    modalEditarProducto.show();
+}
+
+function guardarEdicionProducto(evento) {
+    evento.preventDefault();
+
+    const id = Number(document.getElementById("editId").value);
+    const nombre = document.getElementById("editNombre").value.trim();
+    const categoriaId = Number(document.getElementById("editCategoria").value);
+    const precio = Number(document.getElementById("editPrecio").value);
+    const descripcionTexto = document.getElementById("editDescripcion").value.trim();
+
+    if (!nombre || !categoriaId || !precio || !descripcionTexto) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa nombre, categoría, precio y descripción."
+        });
+        return;
+    }
+
+    if (precio <= 0) {
+        Swal.fire({
+            icon: "warning",
+            title: "Precio inválido",
+            text: "El precio debe ser mayor a 0."
+        });
+        return;
+    }
+
+    Swal.fire({
+        icon: "question",
+        title: "¿Guardar cambios?",
+        showCancelButton: true,
+        confirmButtonText: "Sí, guardar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (!resultado.isConfirmed) return;
+
+        productos = productos.map(p =>
+            p.id === id
+                ? { ...p, nombre, categoriaId, precio, descripcion: descripcionTexto }
+                : p
+        );
+
+        guardarProductos();
+        buscar();
+        modalEditarProducto.hide();
+
+        Swal.fire({
+            icon: "success",
+            title: "Producto actualizado",
+            timer: 1500,
+            showConfirmButton: false
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", cargarProductos);
 inputBuscarProducto.addEventListener("input", buscar);
 selectFiltroCategoria.addEventListener("change", buscar);
@@ -205,3 +290,5 @@ inputFiltroPrecio.addEventListener("input", buscar);
 selectOrdenar.addEventListener("change", buscar);
 formPublicar.addEventListener("submit", publicarProducto);
 contenedorProductos.addEventListener("click", eliminarProducto);
+contenedorProductos.addEventListener("click", abrirModalEditar);
+formEditarProducto.addEventListener("submit", guardarEdicionProducto);

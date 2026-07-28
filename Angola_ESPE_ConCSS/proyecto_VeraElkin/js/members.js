@@ -4,6 +4,8 @@ const selectFiltroTipo = document.getElementById("filtroTipo");
 const selectFiltroEstado = document.getElementById("filtroEstado");
 const selectOrdenarMembresias = document.getElementById("ordenarMembresias");
 const formPublicarMembresia = document.querySelector(".form-publicar");
+const modalEditarMembresia = new bootstrap.Modal(document.getElementById("modalEditarMembresia"));
+const formEditarMembresia = document.getElementById("formEditarMembresia");
 
 const CLAVE_STORAGE = "membresiasComunidad";
 const IMAGEN_DEFECTO = "../img/img-default.png";
@@ -101,9 +103,14 @@ function crearTarjetaMembresia(membresia) {
     div.style.width = "18rem";
     div.style.position = "relative";
     div.innerHTML = `
-        <button class="btn-eliminar" data-id="${membresia.id}" title="Eliminar">
-            <i class="fa-solid fa-trash"></i>
-        </button>
+        <div class="acciones-card">
+            <button class="btn-editar" data-id="${membresia.id}" title="Editar">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="btn-eliminar" data-id="${membresia.id}" title="Eliminar">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
         <img src="${membresia.imagen}" class="card-img-top" alt="${membresia.servicio}">
         <div class="card-body text-center">
             <h5 class="card-title bg-success text-white p-2 rounded">${membresia.servicio}</h5>
@@ -220,6 +227,96 @@ function eliminarMembresia(evento) {
     });
 }
 
+
+function abrirModalEditar(evento) {
+    const boton = evento.target.closest(".btn-editar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const membresia = membresias.find(m => m.id === id);
+    if (!membresia) return;
+
+    document.getElementById("editId").value = membresia.id;
+    document.getElementById("editServicio").value = membresia.servicio;
+    document.getElementById("editPrecioPersona").value = membresia.precioPorPersona;
+    document.getElementById("editEspaciosTotal").value = membresia.espaciosTotal;
+    document.getElementById("editEspaciosOcupados").value = membresia.espaciosOcupados;
+
+    modalEditarMembresia.show();
+}
+
+function guardarEdicionMembresia(evento) {
+    evento.preventDefault();
+
+    const id = Number(document.getElementById("editId").value);
+    const servicio = document.getElementById("editServicio").value.trim();
+    const precioPorPersona = Number(document.getElementById("editPrecioPersona").value);
+    const espaciosTotal = Number(document.getElementById("editEspaciosTotal").value);
+    const espaciosOcupados = Number(document.getElementById("editEspaciosOcupados").value);
+
+    if (!servicio || !precioPorPersona || !espaciosTotal) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa servicio, precio y espacios totales."
+        });
+        return;
+    }
+
+    if (precioPorPersona <= 0 || espaciosTotal < 2) {
+        Swal.fire({
+            icon: "warning",
+            title: "Datos inválidos",
+            text: "El precio debe ser mayor a 0 y los espacios mínimo 2."
+        });
+        return;
+    }
+
+    if (espaciosOcupados > espaciosTotal) {
+        Swal.fire({
+            icon: "warning",
+            title: "Datos inválidos",
+            text: "Los espacios ocupados no pueden ser mayores a los totales."
+        });
+        return;
+    }
+
+    Swal.fire({
+        icon: "question",
+        title: "¿Guardar cambios?",
+        showCancelButton: true,
+        confirmButtonText: "Sí, guardar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (!resultado.isConfirmed) return;
+
+        membresias = membresias.map(m =>
+            m.id === id
+                ? {
+                    ...m,
+                    servicio,
+                    precioPorPersona,
+                    espaciosTotal,
+                    espaciosOcupados,
+                    precioTotal: Number((precioPorPersona * espaciosTotal).toFixed(2)),
+                    plataforma: { ...m.plataforma, nombre: servicio }
+                }
+                : m
+        );
+
+        guardarMembresias();
+        buscar();
+        modalEditarMembresia.hide();
+
+        Swal.fire({
+            icon: "success",
+            title: "Membresía actualizada",
+            timer: 1500,
+            showConfirmButton: false
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", cargarMembresias);
 inputBuscarMembresia.addEventListener("input", buscar);
 selectFiltroTipo.addEventListener("change", buscar);
@@ -227,3 +324,5 @@ selectFiltroEstado.addEventListener("change", buscar);
 selectOrdenarMembresias.addEventListener("change", buscar);
 formPublicarMembresia.addEventListener("submit", publicarMembresia);
 contenedorMembresias.addEventListener("click", eliminarMembresia);
+contenedorMembresias.addEventListener("click", abrirModalEditar);
+formEditarMembresia.addEventListener("submit", guardarEdicionMembresia);

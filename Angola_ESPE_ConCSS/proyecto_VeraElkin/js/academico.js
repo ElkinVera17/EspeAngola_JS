@@ -4,6 +4,8 @@ const selectFiltroMateria = document.getElementById("filtroMateria");
 const selectFiltroCarrera = document.getElementById("filtroCarrera");
 const selectOrdenarPdfs = document.getElementById("ordenarPdfs");
 const formNuevoArchivo = document.querySelector(".upload-section form");
+const modalEditarPdf = new bootstrap.Modal(document.getElementById("modalEditarPdf"));
+const formEditarPdf = document.getElementById("formEditarPdf");
 
 const CLAVE_STORAGE = "pdfsAcademic";
 const ICONO_DEFECTO = "../img/ESPEAcademic/pdf.png";
@@ -111,9 +113,14 @@ function crearCard(pdf) {
     articulo.className = "card";
     articulo.style.position = "relative";
     articulo.innerHTML = `
-        <button class="btn-eliminar" data-id="${pdf.id}" title="Eliminar">
-            <i class="fa-solid fa-trash"></i>
-        </button>
+        <div class="acciones-card">
+            <button class="btn-editar" data-id="${pdf.id}" title="Editar">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="btn-eliminar" data-id="${pdf.id}" title="Eliminar">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
         <img src="${pdf.icono}" alt="PDF" width="80" height="80">
         <h3>${pdf.titulo}</h3>
         <div class="container-fluid p-0">
@@ -247,6 +254,72 @@ function eliminarArchivo(evento) {
     });
 }
 
+
+
+function abrirModalEditar(evento) {
+    const boton = evento.target.closest(".btn-editar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const pdf = pdfs.find(p => p.id === id);
+    if (!pdf) return;
+
+    document.getElementById("editId").value = pdf.id;
+    document.getElementById("editTitulo").value = pdf.titulo;
+    document.getElementById("editCarrera").value = pdf.carrera;
+    document.getElementById("editMateria").value = pdf.materia;
+    document.getElementById("editProfesor").value = pdf.profesor;
+
+    modalEditarPdf.show();
+}
+
+function guardarEdicionPdf(evento) {
+    evento.preventDefault();
+
+    const id = Number(document.getElementById("editId").value);
+    const titulo = document.getElementById("editTitulo").value.trim();
+    const carrera = document.getElementById("editCarrera").value;
+    const materia = document.getElementById("editMateria").value;
+    const profesor = document.getElementById("editProfesor").value.trim();
+
+    if (!titulo || !carrera || !materia || !profesor) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa título, carrera, materia y profesor."
+        });
+        return;
+    }
+
+    Swal.fire({
+        icon: "question",
+        title: "¿Guardar cambios?",
+        showCancelButton: true,
+        confirmButtonText: "Sí, guardar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (!resultado.isConfirmed) return;
+
+        pdfs = pdfs.map(p =>
+            p.id === id
+                ? { ...p, titulo, carrera, materia, profesor }
+                : p
+        );
+
+        guardarPDFs();
+        llenarSelects();
+        buscar();
+        modalEditarPdf.hide();
+
+        Swal.fire({
+            icon: "success",
+            title: "Documento actualizado",
+            timer: 1500,
+            showConfirmButton: false
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", cargarPDFs);
 inputBuscarPdf.addEventListener("input", buscar);
 selectFiltroMateria.addEventListener("change", buscar);
@@ -254,3 +327,5 @@ selectFiltroCarrera.addEventListener("change", buscar);
 selectOrdenarPdfs.addEventListener("change", buscar);
 formNuevoArchivo.addEventListener("submit", crearArchivo);
 contenedorCards.addEventListener("click", eliminarArchivo);
+contenedorCards.addEventListener("click", abrirModalEditar);
+formEditarPdf.addEventListener("submit", guardarEdicionPdf);

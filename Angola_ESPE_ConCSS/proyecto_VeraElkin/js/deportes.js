@@ -4,6 +4,8 @@ const selectFiltroDeporte = document.getElementById("filtroDeporte");
 const inputFiltroFecha = document.getElementById("filtroFecha");
 const selectOrdenarEventos = document.getElementById("ordenarEventos");
 const formCrearEvento = document.querySelector(".upload-section form");
+const modalEditarEvento = new bootstrap.Modal(document.getElementById("modalEditarEvento"));
+const formEditarEvento = document.getElementById("formEditarEvento");
 
 const CLAVE_STORAGE = "eventosDeportivos";
 const IMAGEN_DEFECTO = "../img/img-default.png";
@@ -103,9 +105,14 @@ function crearTarjetaEvento(evento, deporte) {
     articulo.className = "card";
     articulo.style.position = "relative";
     articulo.innerHTML = `
-        <button class="btn-eliminar" data-id="${evento.id}" title="Eliminar">
-            <i class="fa-solid fa-trash"></i>
-        </button>
+        <div class="acciones-card">
+            <button class="btn-editar" data-id="${evento.id}" title="Editar">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="btn-eliminar" data-id="${evento.id}" title="Eliminar">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
         <img src="${evento.imagen}" alt="${deporte ? deporte.nombre : evento.nombre}" width="200" height="100">
         <h3>${evento.nombre}</h3>
         <p>${deporte ? deporte.nombre : ""} | Fecha: ${evento.fecha} | ${evento.participantes} participantes</p>
@@ -197,6 +204,76 @@ function eliminarEvento(evento) {
     });
 }
 
+
+function abrirModalEditar(evento) {
+    const boton = evento.target.closest(".btn-editar");
+    if (!boton) return;
+
+    const id = Number(boton.dataset.id);
+    const eventoEncontrado = eventos.find(e => e.id === id);
+    if (!eventoEncontrado) return;
+
+    document.getElementById("editId").value = eventoEncontrado.id;
+    document.getElementById("editNombreEvento").value = eventoEncontrado.nombre;
+    document.getElementById("editFecha").value = eventoEncontrado.fecha;
+    document.getElementById("editLugar").value = eventoEncontrado.lugar;
+    document.getElementById("editCapacidad").value = eventoEncontrado.capacidad;
+
+    const selectDeporte = document.getElementById("editDeporte");
+    selectDeporte.innerHTML = deportes
+        .map(dep => `<option value="${dep.id}" ${dep.id === eventoEncontrado.deporteId ? "selected" : ""}>${dep.nombre}</option>`)
+        .join("");
+
+    modalEditarEvento.show();
+}
+
+function guardarEdicionEvento(evento) {
+    evento.preventDefault();
+
+    const id = Number(document.getElementById("editId").value);
+    const deporteId = Number(document.getElementById("editDeporte").value);
+    const nombre = document.getElementById("editNombreEvento").value.trim();
+    const fecha = document.getElementById("editFecha").value;
+    const lugar = document.getElementById("editLugar").value.trim();
+    const capacidad = Number(document.getElementById("editCapacidad").value);
+
+    if (!deporteId || !nombre || !fecha || !lugar || !capacidad) {
+        Swal.fire({
+            icon: "warning",
+            title: "Campos incompletos",
+            text: "Completa deporte, nombre, fecha, lugar y capacidad."
+        });
+        return;
+    }
+
+    Swal.fire({
+        icon: "question",
+        title: "¿Guardar cambios?",
+        showCancelButton: true,
+        confirmButtonText: "Sí, guardar",
+        cancelButtonText: "Cancelar"
+    }).then(resultado => {
+        if (!resultado.isConfirmed) return;
+
+        eventos = eventos.map(e =>
+            e.id === id
+                ? { ...e, deporteId, nombre, fecha, lugar, capacidad }
+                : e
+        );
+
+        guardarEventos();
+        buscar();
+        modalEditarEvento.hide();
+
+        Swal.fire({
+            icon: "success",
+            title: "Evento actualizado",
+            timer: 1500,
+            showConfirmButton: false
+        });
+    });
+}
+
 document.addEventListener("DOMContentLoaded", cargarEventos);
 inputBuscarEvento.addEventListener("input", buscar);
 selectFiltroDeporte.addEventListener("change", buscar);
@@ -204,3 +281,5 @@ inputFiltroFecha.addEventListener("change", buscar);
 selectOrdenarEventos.addEventListener("change", buscar);
 formCrearEvento.addEventListener("submit", crearEvento);
 contenedorEventos.addEventListener("click", eliminarEvento);
+contenedorEventos.addEventListener("click", abrirModalEditar);
+formEditarEvento.addEventListener("submit", guardarEdicionEvento);
