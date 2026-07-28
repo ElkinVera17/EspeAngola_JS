@@ -587,3 +587,56 @@ button.btn-quitar-carrito {
 .card-producto {
     position: relative;
 }
+
+.botones-card-info {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.btn-detalle {
+    background: #1565c0;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    flex: 1;
+}
+
+.btn-detalle:hover {
+    background: #0d47a1;
+    color: white;
+}
+
+.btn-like {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777;
+    padding: 4px 0;
+    font-size: 0.95rem;
+}
+
+.btn-like.like-activo {
+    color: #e63946;
+    font-weight: 600;
+}
+
+.detalle-imagen {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.lista-detalle, .lista-detalle-extra {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-detalle li, .lista-detalle-extra li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+}

@@ -109,9 +109,18 @@ function crearTarjetas(arregloProductos) {
     renderizarGrafico();
 }
 
+function obtenerUsuarioActual() {
+    // "invitado" agrupa a todos los que no han iniciado sesión como un solo usuario
+    return sessionStorage.getItem("usuario") || "invitado";
+}
+
 function crearTarjetaProducto(producto, categoria) {
     const articulo = document.createElement("article");
     articulo.className = "card-producto";
+
+    const usuarioActual = obtenerUsuarioActual();
+    const yaLeDioLike = Array.isArray(producto.likesUsuarios) && producto.likesUsuarios.includes(usuarioActual);
+
     articulo.innerHTML = `
         <div class="acciones-card">
             <button class="btn-editar" data-id="${producto.id}" title="Editar">
@@ -126,8 +135,13 @@ function crearTarjetaProducto(producto, categoria) {
             <span class="badge">${categoria ? categoria.nombre : "Sin categoría"}</span>
             <h3>${producto.nombre}</h3>
             <p class="precio">$${producto.precio.toFixed(2)}</p>
-            <p class="likes"><i class="fa-solid fa-heart"></i> ${producto.likes}</p>
-            <a href="#" class="btn-carrito" data-id="${producto.id}">Añadir al carrito</a>
+            <button class="btn-like ${yaLeDioLike ? "like-activo" : ""}" data-id="${producto.id}" title="Me gusta">
+                <i class="fa-solid fa-heart"></i> <span class="conteo-likes">${producto.likes}</span>
+            </button>
+            <div class="botones-card-info">
+                <a href="#" class="btn-carrito" data-id="${producto.id}">Añadir al carrito</a>
+                <a href="#" class="btn-detalle" data-id="${producto.id}">Ver más</a>
+            </div>
         </div>
     `;
     contenedorProductos.appendChild(articulo);
@@ -439,18 +453,46 @@ function finalizarCompra() {
 
     const total = carrito.reduce((suma, item) => suma + item.precio * item.cantidad, 0);
 
+    const resumenItems = carrito.map(item => `
+        <div class="fila-resumen-compra">
+            <span>${item.cantidad}x ${item.nombre}</span>
+            <span>$${(item.precio * item.cantidad).toFixed(2)}</span>
+        </div>
+    `).join("");
+
     Swal.fire({
-        icon: "success",
-        title: "¡Compra realizada!",
-        text: `Gracias por tu compra de $${total.toFixed(2)}. Coordina la entrega con el vendedor.`,
-        confirmButtonText: "Genial"
-    }).then(() => {
-        carrito = [];
-        guardarCarrito();
-        renderizarCarrito();
-        const offcanvasEl = document.getElementById("offcanvasExample");
-        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
-        if (offcanvas) offcanvas.hide();
+        icon: "question",
+        title: "¿Confirmar compra?",
+        html: `
+            <div class="resumen-compra">
+                ${resumenItems}
+                <hr>
+                <div class="fila-resumen-compra fila-total-compra">
+                    <strong>Total</strong>
+                    <strong>$${total.toFixed(2)}</strong>
+                </div>
+            </div>
+        `,
+        showCancelButton: true,
+        confirmButtonText: "Comprar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true
+    }).then(resultado => {
+        if (!resultado.isConfirmed) return;
+
+        Swal.fire({
+            icon: "success",
+            title: "¡Compra realizada!",
+            text: `Gracias por tu compra de $${total.toFixed(2)}. Coordina la entrega con el vendedor.`,
+            confirmButtonText: "Genial"
+        }).then(() => {
+            carrito = [];
+            guardarCarrito();
+            renderizarCarrito();
+            const offcanvasEl = document.getElementById("offcanvasExample");
+            const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+            if (offcanvas) offcanvas.hide();
+        });
     });
 }
 
@@ -519,6 +561,84 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarProductos();
     renderizarCarrito();
 });
+
+
+const modalDetalleProducto = new bootstrap.Modal(document.getElementById("modalDetalleProducto"));
+
+function abrirModalDetalle(evento) {
+    const boton = evento.target.closest(".btn-detalle");
+    if (!boton) return;
+    evento.preventDefault();
+
+    const id = Number(boton.dataset.id);
+    const producto = productos.find(p => p.id === id);
+    if (!producto) return;
+
+    const categoria = categorias.find(cat => cat.id === producto.categoriaId);
+
+    document.getElementById("detalleNombre").textContent = producto.nombre;
+    document.getElementById("detalleImagen").src = producto.imagen;
+    document.getElementById("detalleImagen").alt = producto.nombre;
+    document.getElementById("detalleDescripcion").textContent = producto.descripcion;
+    document.getElementById("detallePrecio").textContent = `$${producto.precio.toFixed(2)}`;
+    document.getElementById("detalleCategoria").textContent = categoria ? categoria.nombre : "Sin categoría";
+    document.getElementById("detalleVendedor").textContent = producto.vendedorId;
+    document.getElementById("detalleFecha").textContent = producto.fechaPublicacion || "No especificada";
+    document.getElementById("detalleLikes").textContent = producto.likes;
+
+    const contenedorExtra = document.getElementById("detalleExtra");
+    if (producto.detalles && Object.keys(producto.detalles).length > 0) {
+        contenedorExtra.innerHTML = `
+            <h6>Más detalles</h6>
+            <ul class="lista-detalle-extra">
+                ${Object.entries(producto.detalles).map(([clave, valor]) => `
+                    <li><strong>${clave}:</strong> ${Array.isArray(valor) ? valor.join(", ") : valor}</li>
+                `).join("")}
+            </ul>
+        `;
+    } else {
+        contenedorExtra.innerHTML = "";
+    }
+
+    modalDetalleProducto.show();
+}
+
+function manejarLike(evento) {
+    const boton = evento.target.closest(".btn-like");
+    if (!boton) return;
+    evento.preventDefault();
+
+    const id = Number(boton.dataset.id);
+    const producto = productos.find(p => p.id === id);
+    if (!producto) return;
+
+    const usuarioActual = obtenerUsuarioActual();
+
+    if (!Array.isArray(producto.likesUsuarios)) {
+        producto.likesUsuarios = [];
+    }
+
+    const yaLeDioLike = producto.likesUsuarios.includes(usuarioActual);
+
+    if (yaLeDioLike) {
+        producto.likesUsuarios = producto.likesUsuarios.filter(u => u !== usuarioActual);
+        producto.likes = Math.max(0, producto.likes - 1);
+        boton.classList.remove("like-activo");
+        mostrarToast("Le quitaste el like", "info");
+    } else {
+        producto.likesUsuarios.push(usuarioActual);
+        producto.likes += 1;
+        boton.classList.add("like-activo");
+        mostrarToast("¡Le diste like!", "exito");
+    }
+
+    boton.querySelector(".conteo-likes").textContent = producto.likes;
+
+    guardarProductos();
+    renderizarGrafico();
+}
+
+
 inputBuscarProducto.addEventListener("input", buscar);
 selectFiltroCategoria.addEventListener("change", buscar);
 inputFiltroPrecio.addEventListener("input", buscar);
@@ -527,3 +647,5 @@ formPublicar.addEventListener("submit", publicarProducto);
 contenedorProductos.addEventListener("click", eliminarProducto);
 contenedorProductos.addEventListener("click", abrirModalEditar);
 formEditarProducto.addEventListener("submit", guardarEdicionProducto);
+contenedorProductos.addEventListener("click", abrirModalDetalle);
+contenedorProductos.addEventListener("click", manejarLike);

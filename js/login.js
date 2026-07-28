@@ -24,28 +24,34 @@ function validarLogin(evento) {
     const usuarioIngresado = inputUsuario.value.trim();
     const passwordIngresado = inputPassword.value.trim();
 
-    // 1. Buscar primero en los usuarios registrados localmente
     const usuariosRegistrados = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
     const usuarioLocal = usuariosRegistrados.find(
         u => u.usuario === usuarioIngresado && u.password === passwordIngresado
     );
 
     if (usuarioLocal) {
-        iniciarSesion(`${usuarioLocal.nombres} ${usuarioLocal.apellido}`, null);
+        iniciarSesion(`${usuarioLocal.nombres} ${usuarioLocal.apellido}`, null, usuarioLocal.nacionalidad);
         return;
     }
 
-    // 2. Si no está local, buscar en los usuarios de la API
     const usuarioApi = usuariosApi.find(
         u => u.username === usuarioIngresado && u.password === passwordIngresado
     );
 
     if (usuarioApi) {
-        iniciarSesion(`${usuarioApi.firstName} ${usuarioApi.lastName}`, usuarioApi.image);
+        iniciarSesion(`${usuarioApi.firstName} ${usuarioApi.lastName}`, usuarioApi.image, null);
         return;
     }
 
     alert("Usuario o contraseña incorrectos");
+}
+
+function iniciarSesion(nombre, foto, nacionalidad) {
+    sessionStorage.setItem("usuario", nombre);
+    if (foto) sessionStorage.setItem("usuarioFoto", foto);
+    if (nacionalidad) sessionStorage.setItem("usuarioNacionalidad", nacionalidad);
+    localStorage.setItem("ultimoUsuario", nombre);
+    window.location.href = "Principal/Angola.html";
 }
 
 function iniciarSesion(nombre, foto) {
