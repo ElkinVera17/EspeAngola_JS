@@ -114,7 +114,7 @@
 
         <!-- Buscar y Publicar -->
         <section class="formularios-members">
-            
+
 
             <section class="toolbar-busqueda">
                 <input type="text" id="buscarMembresia" class="form-control" placeholder="Buscar servicio...">
@@ -137,7 +137,7 @@
                 </select>
             </section>
 
-            
+
         </section>
 
         <!-- Listado de membresías (tarjetas dentro de articles) -->
@@ -151,73 +151,74 @@
             </div>
         </section>
         <form action="#" method="get" class="form-publicar">
-                <fieldset>
-                    
-                    <legend>Publicar Membresía</legend>
-                    <label for="servicio">Servicio:</label>
-                    <input type="text" id="servicio" name="Servicio" placeholder="Netflix, Spotify..." required>
-                    
-                    <label for="nuevoPrecio">Precio:</label>
-                    <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio por persona" required
-                        min="0.01" step="0.01">
-                    
-                    <label for="espacios">Espacios:</label>
-                    <input type="number" id="espacios" name="Espacios" placeholder="Cantidad" required min="2" max="10">
-                    
-                    <label for="imagenMembresia">Imagen:</label>
-                    <input type="file" id="imagenMembresia" name="ImagenMembresia">
-                    
-                    <button type="submit">Publicar</button>
-                </fieldset>
-            </form>
+            <fieldset>
+
+                <legend>Publicar Membresía</legend>
+                <label for="servicio">Servicio:</label>
+                <input type="text" id="servicio" name="Servicio" placeholder="Netflix, Spotify..." required>
+
+                <label for="nuevoPrecio">Precio:</label>
+                <input type="number" id="nuevoPrecio" name="NuevoPrecio" placeholder="Precio por persona" required
+                    min="0.01" step="0.01">
+
+                <label for="espacios">Espacios:</label>
+                <input type="number" id="espacios" name="Espacios" placeholder="Cantidad" required min="2" max="10">
+
+                <label for="imagenMembresia">Imagen:</label>
+                <input type="file" id="imagenMembresia" name="ImagenMembresia">
+
+                <button type="submit">Publicar</button>
+            </fieldset>
+        </form>
 
 
     </main>
     <a href="#" class="arriba"><i class="fa-solid fa-arrow-up"></i></a>
-    
+
     <div class="modal fade" id="modalEditarMembresia" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <h5 class="modal-title">Editar membresía</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar membresía</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="formEditarMembresia">
+                        <input type="hidden" id="editId">
+
+                        <div class="mb-3">
+                            <label for="editServicio" class="form-label">Servicio:</label>
+                            <input type="text" id="editServicio" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editPrecioPersona" class="form-label">Precio por persona:</label>
+                            <input type="number" id="editPrecioPersona" class="form-control" min="0.01" step="0.01"
+                                required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editEspaciosTotal" class="form-label">Espacios totales:</label>
+                            <input type="number" id="editEspaciosTotal" class="form-control" min="2" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editEspaciosOcupados" class="form-label">Espacios ocupados:</label>
+                            <input type="number" id="editEspaciosOcupados" class="form-control" min="0" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="formEditarMembresia" class="btn btn-primary">Guardar cambios</button>
+                </div>
+
             </div>
-
-            <div class="modal-body">
-                <form id="formEditarMembresia">
-                    <input type="hidden" id="editId">
-
-                    <div class="mb-3">
-                        <label for="editServicio" class="form-label">Servicio:</label>
-                        <input type="text" id="editServicio" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editPrecioPersona" class="form-label">Precio por persona:</label>
-                        <input type="number" id="editPrecioPersona" class="form-control" min="0.01" step="0.01" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editEspaciosTotal" class="form-label">Espacios totales:</label>
-                        <input type="number" id="editEspaciosTotal" class="form-control" min="2" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editEspaciosOcupados" class="form-label">Espacios ocupados:</label>
-                        <input type="number" id="editEspaciosOcupados" class="form-control" min="0" required>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" form="formEditarMembresia" class="btn btn-primary">Guardar cambios</button>
-            </div>
-
         </div>
     </div>
-</div>
 
 
     <footer>
@@ -228,10 +229,14 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../js/members.js"></script>
     <script src="../js/perfil.js"></script>
+
 
 </body>
 

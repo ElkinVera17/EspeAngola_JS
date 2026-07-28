@@ -39,6 +39,7 @@ async function cargarProductos() {
 
         llenarSelectCategorias();
         crearTarjetas(productos);
+        mostrarToast("Datos cargados", "info");
     } catch (error) {
         console.error("Tu error es", error);
         contenedorProductos.innerHTML = "<p>No se pudieron cargar los productos.</p>";
@@ -171,13 +172,7 @@ function publicarProducto(evento) {
     buscar();
     formPublicar.reset();
 
-    Swal.fire({
-        icon: "success",
-        title: "Producto publicado",
-        text: `"${nombre}" se agregó correctamente.`,
-        timer: 2000,
-        showConfirmButton: false
-    });
+    mostrarToast("Producto agregado", "exito");
 }
 
 function eliminarProducto(evento) {
@@ -199,12 +194,7 @@ function eliminarProducto(evento) {
             productos = productos.filter(p => p.id !== id);
             guardarProductos();
             buscar();
-            Swal.fire({
-                icon: "success",
-                title: "Eliminado",
-                timer: 1500,
-                showConfirmButton: false
-            });
+            mostrarToast("Producto eliminado", "error");
         }
     });
 }
@@ -278,12 +268,7 @@ function guardarEdicionProducto(evento) {
         buscar();
         modalEditarProducto.hide();
 
-        Swal.fire({
-            icon: "success",
-            title: "Producto actualizado",
-            timer: 1500,
-            showConfirmButton: false
-        });
+        mostrarToast("Producto actualizado", "exito");
     });
 }
 
@@ -362,6 +347,15 @@ function restablecerDatos() {
         }
     });
 }
+
+function agregarAlCarrito(evento) {
+    const boton = evento.target.closest(".btn-carrito");
+    if (!boton) return;
+    evento.preventDefault();
+    mostrarToast("Producto añadido al carrito", "exito");
+}
+
+contenedorProductos.addEventListener("click", agregarAlCarrito);
 
 botonRestablecer.addEventListener("click", restablecerDatos);
 

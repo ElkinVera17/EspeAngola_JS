@@ -29,6 +29,7 @@ async function cargarMembresias() {
 
         llenarSelectTipos();
         crearTarjetas(membresias);
+        mostrarToast("Datos cargados", "info");
     } catch (error) {
         console.error("Tu error es", error);
         contenedorMembresias.innerHTML = "<p>No se pudieron cargar las membresías.</p>";
@@ -189,13 +190,7 @@ function publicarMembresia(evento) {
     buscar();
     formPublicarMembresia.reset();
 
-    Swal.fire({
-        icon: "success",
-        title: "Membresía publicada",
-        text: `"${servicio}" se agregó correctamente.`,
-        timer: 2000,
-        showConfirmButton: false
-    });
+   mostrarToast("Membresía agregada", "exito");
 }
 
 function eliminarMembresia(evento) {
@@ -217,12 +212,7 @@ function eliminarMembresia(evento) {
             membresias = membresias.filter(m => m.id !== id);
             guardarMembresias();
             buscar();
-            Swal.fire({
-                icon: "success",
-                title: "Eliminado",
-                timer: 1500,
-                showConfirmButton: false
-            });
+            mostrarToast("Membresía eliminada", "error");
         }
     });
 }
@@ -308,12 +298,7 @@ function guardarEdicionMembresia(evento) {
         buscar();
         modalEditarMembresia.hide();
 
-        Swal.fire({
-            icon: "success",
-            title: "Membresía actualizada",
-            timer: 1500,
-            showConfirmButton: false
-        });
+      mostrarToast("Membresía actualizada", "exito");
     });
 }
 

@@ -36,6 +36,7 @@ async function cargarEventos() {
 
         llenarSelectDeportes();
         crearTarjetas(eventos);
+        mostrarToast("Datos cargados", "info");
     } catch (error) {
         console.error("Tu error es", error);
         contenedorEventos.innerHTML = "<p>No se pudieron cargar los eventos.</p>";
@@ -166,13 +167,7 @@ function crearEvento(evento) {
     buscar();
     formCrearEvento.reset();
 
-    Swal.fire({
-        icon: "success",
-        title: "Evento creado",
-        text: `"${nombre}" se agregó correctamente.`,
-        timer: 2000,
-        showConfirmButton: false
-    });
+    mostrarToast("Evento agregado", "exito");
 }
 
 function eliminarEvento(evento) {
@@ -194,12 +189,7 @@ function eliminarEvento(evento) {
             eventos = eventos.filter(e => e.id !== id);
             guardarEventos();
             buscar();
-            Swal.fire({
-                icon: "success",
-                title: "Eliminado",
-                timer: 1500,
-                showConfirmButton: false
-            });
+            mostrarToast("Evento eliminado", "error");
         }
     });
 }
@@ -265,14 +255,13 @@ function guardarEdicionEvento(evento) {
         buscar();
         modalEditarEvento.hide();
 
-        Swal.fire({
-            icon: "success",
-            title: "Evento actualizado",
-            timer: 1500,
-            showConfirmButton: false
-        });
+        mostrarToast("Evento actualizado", "exito");
     });
 }
+
+document.getElementById("btnConfirmarInscripcion").addEventListener("click", () => {
+    mostrarToast("Reserva realizada", "exito");
+});
 
 document.addEventListener("DOMContentLoaded", cargarEventos);
 inputBuscarEvento.addEventListener("input", buscar);

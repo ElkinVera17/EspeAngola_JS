@@ -128,10 +128,10 @@
                         <option value="2">Agropecuaria</option>
                         <option value="3">Biotecnologia</option>
                     </select>
-                    
+
                     <label for="nivel2">Nivel:</label>
-                  <input type="number" id="nivel2" name="Semestre" max="8" min="1" placeholder="Semestre" required>
-                    
+                    <input type="number" id="nivel2" name="Semestre" max="8" min="1" placeholder="Semestre" required>
+
                     <label for="materia2">Materia:</label>
                     <select id="materia2" name="Materia">
                         <option value="1">EDO</option>
@@ -141,13 +141,13 @@
                         <option value="5">Computación digital</option>
                         <option value="6">Liderazgo</option>
                     </select>
-                  
+
                     <label for="profesor2">Profesor:</label>
                     <input type="text" id="profesor2" name="Profesor" placeholder="Nombre del profesor" required>
-                 
+
                     <label for="archivo">Archivo:</label>
                     <input type="file" id="archivo" name="Archivo">
-                 
+
                     <button type="button" class="btn btn-outline-success">Limpiar</button>
                     <button type="submit" class="btn btn-outline-success">Subir</button>
                 </fieldset>
@@ -157,59 +157,59 @@
     </main>
 
     <div class="modal fade" id="modalEditarPdf" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <h5 class="modal-title">Editar documento</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar documento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="formEditarPdf">
+                        <input type="hidden" id="editId">
+
+                        <div class="mb-3">
+                            <label for="editTitulo" class="form-label">Título:</label>
+                            <input type="text" id="editTitulo" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editCarrera" class="form-label">Carrera:</label>
+                            <select id="editCarrera" class="form-select" required>
+                                <option value="ITIN">ITIN</option>
+                                <option value="Agropecuaria">Agropecuaria</option>
+                                <option value="Biotecnologia">Biotecnologia</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editMateria" class="form-label">Materia:</label>
+                            <select id="editMateria" class="form-select" required>
+                                <option value="EDO">EDO</option>
+                                <option value="POO">POO</option>
+                                <option value="Calculo">Calculo</option>
+                                <option value="Fisica">Fisica</option>
+                                <option value="Computación digital">Computación digital</option>
+                                <option value="Liderazgo">Liderazgo</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editProfesor" class="form-label">Profesor:</label>
+                            <input type="text" id="editProfesor" class="form-control" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="formEditarPdf" class="btn btn-primary">Guardar cambios</button>
+                </div>
+
             </div>
-
-            <div class="modal-body">
-                <form id="formEditarPdf">
-                    <input type="hidden" id="editId">
-
-                    <div class="mb-3">
-                        <label for="editTitulo" class="form-label">Título:</label>
-                        <input type="text" id="editTitulo" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editCarrera" class="form-label">Carrera:</label>
-                        <select id="editCarrera" class="form-select" required>
-                            <option value="ITIN">ITIN</option>
-                            <option value="Agropecuaria">Agropecuaria</option>
-                            <option value="Biotecnologia">Biotecnologia</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editMateria" class="form-label">Materia:</label>
-                        <select id="editMateria" class="form-select" required>
-                            <option value="EDO">EDO</option>
-                            <option value="POO">POO</option>
-                            <option value="Calculo">Calculo</option>
-                            <option value="Fisica">Fisica</option>
-                            <option value="Computación digital">Computación digital</option>
-                            <option value="Liderazgo">Liderazgo</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="editProfesor" class="form-label">Profesor:</label>
-                        <input type="text" id="editProfesor" class="form-control" required>
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" form="formEditarPdf" class="btn btn-primary">Guardar cambios</button>
-            </div>
-
         </div>
     </div>
-</div>
 
     <footer>
         <p>&copy; 2026 Espe. Todos los derechos reservados</p>
@@ -220,6 +220,9 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/toast.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="../js/perfil.js"></script>

@@ -39,7 +39,7 @@ function guardarUsuario(evento) {
     usuariosRegistrados.push(nuevoUsuario);
     localStorage.setItem("usuariosRegistrados", JSON.stringify(usuariosRegistrados));
 
-    alert("Registro exitoso, ahora puedes iniciar sesión");
+    mostrarToast("Registro guardado", "exito");
     window.location.href = "../index.html";
 }
 

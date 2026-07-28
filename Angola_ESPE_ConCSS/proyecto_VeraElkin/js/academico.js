@@ -35,6 +35,7 @@ async function cargarPDFs() {
 
         llenarSelects();
         crearTarjetas(pdfs);
+        mostrarToast("Datos cargados", "info");
     } catch (error) {
         console.error(error);
         contenedorCards.innerHTML = "<p>No se pudieron cargar los documentos.</p>";
@@ -216,13 +217,7 @@ function crearArchivo(evento) {
     buscar();
     formNuevoArchivo.reset();
 
-    Swal.fire({
-        icon: "success",
-        title: "Archivo subido",
-        text: `El documento de "${materia}" se agregó correctamente.`,
-        timer: 2000,
-        showConfirmButton: false
-    });
+    mostrarToast("Documento agregado", "exito");
 }
 
 function eliminarArchivo(evento) {
@@ -244,12 +239,7 @@ function eliminarArchivo(evento) {
             pdfs = pdfs.filter(p => p.id !== id);
             guardarPDFs();
             buscar();
-            Swal.fire({
-                icon: "success",
-                title: "Eliminado",
-                timer: 1500,
-                showConfirmButton: false
-            });
+            mostrarToast("Documento eliminado", "error");
         }
     });
 }
@@ -311,12 +301,7 @@ function guardarEdicionPdf(evento) {
         buscar();
         modalEditarPdf.hide();
 
-        Swal.fire({
-            icon: "success",
-            title: "Documento actualizado",
-            timer: 1500,
-            showConfirmButton: false
-        });
+        mostrarToast("Documento actualizado", "exito");
     });
 }
 
