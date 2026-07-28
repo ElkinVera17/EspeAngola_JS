@@ -130,6 +130,7 @@
         <a class="btn btn-primary Carrito" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
             aria-controls="offcanvasExample">
             <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge-carrito" id="badgeCarrito">0</span>
         </a>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
@@ -140,52 +141,27 @@
             </div>
             <div class="offcanvas-body">
                 <div>
-                    No te detangas estas ayudando a alguien a seguir con sus sueños.
+                    No te detengas, estas ayudando a alguien a seguir con sus sueños.
                 </div>
-                <div class="dropdown mt-3">
 
+                <div class="mt-3">
+                    <div class="lista-carrito" id="cuerpoCarrito">
+                        <!-- Ítems generados dinámicamente por market.js -->
+                    </div>
 
-                    <table class="table table-dark table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Objeto</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">$</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>dulce</td>
-                                <td>5</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Libro</td>
-                                <td>5</td>
-                                <td>12</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Maquillaje</td>
-                                <td>5</td>
-                                <td>12</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="resumen-carrito">
+                        <span>Total:</span>
+                        <strong id="totalCarrito">$0.00</strong>
+                    </div>
 
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-bs-toggle="dropdown">
-                        Productos en carrito
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="#dulce" data-bs-dismiss="offcanvas">dulce 1.50</a></li>
-                        <li><a class="dropdown-item" href="#ingles" data-bs-dismiss="offcanvas">libro 12</a></li>
-                        <li><a class="dropdown-item" href="#maquillaje" data-bs-dismiss="offcanvas">maquillaje 5</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex gap-2 mt-3">
+                        <button type="button" class="btn btn-outline-light btn-sm" id="btnVaciarCarrito">
+                            <i class="fa-solid fa-trash"></i> Vaciar
+                        </button>
+                        <button type="button" class="btn btn-success btn-sm flex-grow-1" id="btnFinalizarCompra">
+                            Finalizar compra
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

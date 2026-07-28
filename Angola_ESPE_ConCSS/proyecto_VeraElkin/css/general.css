@@ -35,7 +35,7 @@ body {
     text-align: center;
     background-color: var(--gray-bg);
     line-height: 1.6;
-    padding: 0 10px; /*pensando en movile*/
+    padding: 0 5px; /*pensando en movile*/
     min-height: 100vh;
 }
 
@@ -415,9 +415,6 @@ footer:last-child {
 
 @media (min-width: 768px) {
 
-    body {
-        padding: 0 20px;
-    }
 
     nav {
         gap: 10px;
@@ -489,9 +486,7 @@ footer:last-child {
 
 @media (min-width: 1024px) {
 
-    body {
-        padding: 0 40px;
-    }
+   
 
     nav {
         gap: 16px;
@@ -507,7 +502,6 @@ footer:last-child {
 
 @media (min-width: 1366px) { 
     body {
-        padding: 0 60px; 
 
     nav {
         gap: 20px;

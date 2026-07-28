@@ -270,6 +270,139 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* ============================================================
+   BLOQUE: CARRITO DE COMPRAS
+   Contador flotante y resumen dentro del offcanvas.
+   ============================================================ */
+.badge-carrito {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #e67e22;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    line-height: 1;
+}
+
+.lista-carrito {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 45vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2px;
+}
+
+.item-carrito {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 10px 12px;
+    color: white;
+}
+
+.item-carrito .fila-nombre {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.item-carrito .nombre-producto {
+    font-size: 0.9rem;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.item-carrito .subtotal-producto {
+    color: #ffc857;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.item-carrito .fila-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.item-carrito .precio-unitario {
+    font-size: 0.8rem;
+    color: #bbb;
+}
+
+.control-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button.btn-cantidad {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    background: #0b7231;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+}
+
+button.btn-cantidad:hover {
+    background: #e67e22;
+}
+
+.control-cantidad .valor-cantidad {
+    min-width: 18px;
+    text-align: center;
+    font-weight: 600;
+}
+
+button.btn-quitar-carrito {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px;
+}
+
+.carrito-vacio {
+    text-align: center;
+    color: #bbb;
+    padding: 20px 0;
+}
+
+.resumen-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: white;
+    font-size: 1.05rem;
+    margin-top: 12px;
+}
 /* ============================================================
    BLOQUE 16: Titulo ID 
    ============================================================ */
@@ -454,5 +587,3 @@ body {
 .card-producto {
     position: relative;
 }
-
-
