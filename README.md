@@ -1,222 +1,324 @@
-Angola - Comunidad ESPE
-📋 Información del Proyecto
-Nombre del proyecto: Angola - Comunidad ESPE
+# Angola - Comunidad ESPE
 
-Estudiante: Elkin Vera
+## 📋 Información del Proyecto
 
-Carrera: Ingeniería en Tecnologías de la Información (ITIN)
+- **Nombre del proyecto:** Angola - Comunidad ESPE
+- **Estudiante:** Elkin Vera
+- **Carrera:** Ingeniería en Tecnologías de la Información (ITIN)
+- **Institución:** Universidad de las Fuerzas Armadas ESPE - Santo Domingo
 
-Institución: Universidad de las Fuerzas Armadas ESPE - Santo Domingo
+---
 
-📖 Descripción
-Angola es una plataforma web integral diseñada para fortalecer la comunidad estudiantil de la Universidad de las Fuerzas Armadas ESPE. Este proyecto centraliza cuatro servicios esenciales en un solo lugar, permitiendo a los estudiantes acceder a recursos académicos, participar en eventos deportivos, comprar y vender productos, y compartir suscripciones digitales.
+## 📖 Descripción
 
-La plataforma funciona como un ecosistema digital donde los miembros de la comunidad pueden colaborar, intercambiar recursos y mantener una convivencia más activa y conectada dentro del campus universitario.
+**Angola - Comunidad ESPE** es una plataforma web desarrollada para fortalecer la interacción entre los estudiantes de la Universidad de las Fuerzas Armadas ESPE. Centraliza cuatro servicios principales en un solo sitio, permitiendo acceder a recursos académicos, participar en actividades deportivas, comprar y vender productos dentro de la comunidad universitaria y compartir membresías digitales.
 
-🎯 Objetivo
-General:
-Desarrollar una plataforma web dinámica e interactiva que centralice los servicios de la comunidad estudiantil de la ESPE, mejorando la colaboración, el intercambio de recursos y la convivencia entre sus miembros mediante el uso de tecnologías frontend modernas.
+La plataforma busca facilitar la colaboración entre estudiantes mediante una interfaz moderna, dinámica y responsiva.
 
-Específicos:
+---
 
-Implementar un sistema de autenticación básico con registro de usuarios y login.
+## 🎯 Objetivos
 
-Diseñar cuatro módulos funcionales (Académico, Deportes, Market, Members).
+### Objetivo General
 
-Desarrollar un sistema CRUD completo con persistencia en localStorage.
+Desarrollar una plataforma web dinámica e interactiva que centralice distintos servicios de la comunidad estudiantil de la ESPE, promoviendo la colaboración, el intercambio de recursos y la participación mediante tecnologías frontend.
 
-Crear una interfaz responsiva y dinámica con JavaScript.
+### Objetivos Específicos
 
-⚡ Funcionalidades
-🔐 Autenticación
-Registro de nuevos usuarios con validación de campos.
+- Implementar un sistema de autenticación con registro e inicio de sesión.
+- Diseñar cuatro módulos funcionales: Académico, Deportes, Market y Members.
+- Desarrollar operaciones CRUD con persistencia mediante LocalStorage.
+- Crear una interfaz moderna, responsiva e interactiva utilizando JavaScript.
 
-Inicio de sesión con usuarios locales (localStorage) o de API externa (DummyJSON).
+---
 
-Perfil de usuario con foto y nacionalidad.
+## ⚡ Funcionalidades
 
-📚 ESPE Académico
-Visualización de documentos académicos (exámenes, guías).
+### 🔐 Autenticación
 
-Búsqueda por título o profesor.
+- Registro de usuarios con validación de datos.
+- Inicio de sesión utilizando usuarios locales o una API externa.
+- Perfil de usuario con fotografía y nacionalidad.
 
-Filtros por materia y carrera.
+### 📚 ESPE Academic
 
-Ordenamiento por fecha, descargas o calificación.
+- Visualización de documentos académicos.
+- Búsqueda por título o profesor.
+- Filtros por carrera y materia.
+- Ordenamiento por fecha, descargas y calificación.
+- Crear, editar y eliminar documentos.
 
-Creación, edición y eliminación de documentos.
+### ⚽ ESPE Deportes
 
-⚽ ESPE Deportes
-Gestión de eventos deportivos.
+- Gestión de eventos deportivos.
+- Búsqueda por nombre o lugar.
+- Filtros por deporte y fecha.
+- Inscripción a eventos con confirmación.
+- Estadísticas de participación.
 
-Búsqueda por nombre o lugar.
+### 🛒 ESPE Market
 
-Filtros por deporte y fecha.
+- Marketplace para compra y venta de productos.
+- Búsqueda por nombre.
+- Filtros por categoría y precio.
+- Sistema de favoritos (Likes).
+- Carrito de compras con persistencia.
+- Gráficos estadísticos de productos.
 
-Inscripción a eventos con confirmación.
+### 👥 ESPE Members
 
-Estadísticas de aceptación en tabla.
+- Compartir membresías digitales.
+- Filtros por servicio y disponibilidad.
+- Crear, editar y eliminar membresías.
+- Visualización de cupos disponibles.
 
-🛒 ESPE Market
-Marketplace interno para compra/venta de productos.
+### 📊 Dashboard
 
-Búsqueda y filtros por categoría y precio.
+- Estadísticas generales de la plataforma.
+- Total de productos.
+- Total de eventos.
+- Total de documentos.
+- Total de membresías.
+- Categoría más popular.
+- Precio promedio.
 
-Sistema de "Me gusta" (likes) por usuario.
+---
 
-Carrito de compras con persistencia.
+## 🛠️ Tecnologías Utilizadas
 
-Gráfico de productos más populares.
+| Tecnología | Uso |
+|------------|-----|
+| HTML5 | Estructura de las páginas |
+| CSS3 | Diseño y estilos |
+| JavaScript (ES6+) | Lógica de la aplicación |
+| Bootstrap 5 | Diseño responsivo |
+| JSON | Datos iniciales |
+| LocalStorage | Persistencia de información |
+| Fetch API | Consumo de APIs |
 
-👥 ESPE Members
-Membresías compartidas (Netflix, Spotify, etc.).
+---
 
-Filtros por tipo de servicio y disponibilidad.
+## 📦 Librerías Utilizadas
 
-Creación, edición y eliminación de membresías.
+| Librería | Finalidad |
+|----------|-----------|
+| Bootstrap 5 | Componentes y diseño responsivo |
+| Font Awesome 6 | Iconografía |
+| SweetAlert2 | Alertas personalizadas |
+| Toastify | Notificaciones |
+| Chart.js | Gráficos estadísticos |
 
-Visualización de cupos disponibles.
+---
 
-📊 Estadísticas
-Dashboard con KPIs de la comunidad.
+## 🔌 APIs Consumidas
 
-Productos totales, eventos, membresías, documentos.
+### DummyJSON - Usuarios
 
-Categoría más popular y precio promedio.
+**URL**
 
-🛠️ Tecnologías utilizadas
-Tecnología	Uso
-HTML5	Estructura semántica de las páginas
-CSS3	Estilos y diseño visual
-JavaScript (ES6+)	Lógica de negocio, manipulación del DOM, eventos
-Bootstrap 5	Framework CSS para diseño responsivo
-JSON	Almacenamiento de datos iniciales
-localStorage	Persistencia de datos en el navegador
-Fetch API	Consumo de APIs externas
-📦 Librerías incorporadas
-Librería	Finalidad
-Bootstrap 5	Sistema de diseño responsivo y componentes UI
-Font Awesome 6	Iconos vectoriales para la interfaz
-SweetAlert2	Alertas y modales personalizados
-Toastify	Notificaciones emergentes no intrusivas
-Chart.js	Gráficos y visualización de datos
-🔌 APIs consumidas
-1. DummyJSON - Usuarios
-URL: https://dummyjson.com/users
+```
+https://dummyjson.com/users
+```
 
-Uso: Autenticación de usuarios de prueba
+**Uso**
 
-Datos: username, password, firstName, lastName, image, email, address, company
+- Autenticación de usuarios de prueba.
 
-2. DummyJSON - Miembros
-URL: https://dummyjson.com/users?limit=8
+**Datos utilizados**
 
-Uso: Mostrar miembros de la comunidad
+- username
+- password
+- firstName
+- lastName
+- image
+- email
+- address
+- company
 
-Datos: firstName, lastName, image, email, address.city, company.title
+---
 
-3. Rest Countries - Banderas
-URL: https://restcountries.com/v3.1/name/{pais}?fields=flags
+### DummyJSON - Miembros
 
-Uso: Obtener bandera según nacionalidad del usuario
+**URL**
 
-Datos: flags.png
+```
+https://dummyjson.com/users?limit=8
+```
 
-📁 Estructura de carpetas 
+**Uso**
+
+- Mostrar miembros de la comunidad.
+
+**Datos utilizados**
+
+- firstName
+- lastName
+- image
+- email
+- address.city
+- company.title
+
+---
+
+### Rest Countries
+
+**URL**
+
+```
+https://restcountries.com/v3.1/name/{pais}?fields=flags
+```
+
+**Uso**
+
+- Obtener la bandera correspondiente a la nacionalidad del usuario.
+
+**Datos utilizados**
+
+- flags.png
+
+---
+
+## 📁 Estructura del Proyecto
+
+```text
 Angola/
-├── index.html                    # Página de login
+├── index.html
 ├── pages/
-│   ├── Angola.html              # Página principal
-│   ├── ESPEAcademic.html        # Módulo académico
-│   ├── ESPEDeportes.html        # Módulo deportes
-│   ├── ESPEMarket.html          # Módulo market
-│   ├── ESPEMembers.html         # Módulo members
-│   └── registro.html            # Registro de usuarios
+│   ├── Angola.html
+│   ├── ESPEAcademic.html
+│   ├── ESPEDeportes.html
+│   ├── ESPEMarket.html
+│   ├── ESPEMembers.html
+│   └── registro.html
 ├── css/
-│   ├── general.css              # Estilos globales
-│   ├── angola.css               # Estilos página principal
-│   ├── ESPEAcademic.css         # Estilos académico
-│   ├── ESPEDeportes.css         # Estilos deportes
-│   ├── ESPEMarket.css           # Estilos market
-│   ├── ESPEMembers.css          # Estilos members
-│   ├── login.css                # Estilos login
-│   └── registro.css             # Estilos registro
+│   ├── general.css
+│   ├── angola.css
+│   ├── ESPEAcademic.css
+│   ├── ESPEDeportes.css
+│   ├── ESPEMarket.css
+│   ├── ESPEMembers.css
+│   ├── login.css
+│   └── registro.css
 ├── js/
-│   ├── academico.js             # Lógica académico
-│   ├── deportes.js              # Lógica deportes
-│   ├── market.js                # Lógica market
-│   ├── members.js               # Lógica members
-│   ├── miembros.js              # Consumo API miembros
-│   ├── login.js                 # Lógica login
-│   ├── registro.js              # Lógica registro
-│   ├── perfil.js                # Perfil de usuario
-│   ├── estadisticas.js          # Estadísticas dashboard
-│   ├── paises.js                # Búsqueda de países
-│   └── toast.js                 # Notificaciones
+│   ├── academico.js
+│   ├── deportes.js
+│   ├── market.js
+│   ├── members.js
+│   ├── miembros.js
+│   ├── login.js
+│   ├── registro.js
+│   ├── perfil.js
+│   ├── estadisticas.js
+│   ├── paises.js
+│   └── toast.js
 ├── json/
-│   ├── categorias.json          # Categorías de productos
-│   ├── deportes.json            # Lista de deportes
-│   ├── eventos_deportivos.json  # Eventos deportivos
-│   ├── membresias.json          # Membresías compartidas
-│   ├── pdfs.json                # Documentos académicos
-│   └── productos.json           # Productos del market
-├── img/                         # Imágenes del proyecto
-├── video/                       # Videos (carrusel)
-└── README.md                    # Este archivo
+│   ├── categorias.json
+│   ├── deportes.json
+│   ├── eventos_deportivos.json
+│   ├── membresias.json
+│   ├── pdfs.json
+│   └── productos.json
+├── img/
+├── video/
+└── README.md
+```
 
- Instrucciones para ejecutar el proyecto
-Requisitos previos
-Navegador web moderno (Chrome, Firefox, Edge, Safari)
+---
 
-Conexión a internet (para librerías CDN y APIs)
+## 🚀 Instrucciones de Ejecución
 
-Paso a paso
-Clonar o descargar el proyecto
-git clone https://github.com/tu-usuario/angola-comunidad-espe.git
-O descarga el archivo ZIP y extráelo.
+### Requisitos
 
-Abrir la aplicación
+- Navegador moderno (Chrome, Edge, Firefox o Safari).
+- Conexión a Internet para cargar librerías y APIs.
 
-Localiza el archivo index.html en la raíz del proyecto.
+### 1. Clonar el repositorio
 
-Haz doble clic para abrirlo en tu navegador.
+```bash
+git clone https://github.com/ElkinVera17/EspeAngola_JS.git
+```
 
-O usa una extensión como "Live Server" en VS Code.
+O descargar el proyecto en formato ZIP.
 
-Iniciar sesión
+### 2. Abrir la aplicación
 
-Opción 1 - Usuario de prueba (API):
+- Abrir el archivo **index.html**.
+- También puede utilizar la extensión **Live Server** de Visual Studio Code.
 
-Usuario: emily.johnson
+### 3. Iniciar sesión
 
-Contraseña: emilyspass
+#### Usuario de prueba
 
-Opción 2 - Registrarse:
+**Usuario**
 
-Haz clic en "Registrarse"
+```
+emily.johnson
+```
 
-Completa el formulario
+**Contraseña**
 
-Inicia sesión con tus credenciales
+```
+emilyspass
+```
 
-Explorar los módulos
+#### Registro
 
-Navega por los 4 módulos usando el menú superior.
+- Seleccionar **Registrarse**.
+- Completar el formulario.
+- Iniciar sesión con las credenciales creadas.
 
-Crea, edita y elimina contenido.
+### 4. Explorar la plataforma
 
-Prueba los filtros y buscadores.
+- Navegar por los cuatro módulos.
+- Crear, editar y eliminar información.
+- Utilizar filtros y buscadores.
+- Agregar productos al carrito.
 
-Agrega productos al carrito.
+---
 
-Nota importante
-Los datos se almacenan en localStorage de tu navegador. Si usas otro navegador o dispositivo, los datos no estarán sincronizados. Para reiniciar los datos a su estado original, usa el botón "Restablecer datos" en ESPEMarket.
+## 📌 Nota
 
-📝 Créditos
-Desarrollador: Elkin Vera
-Institución: Universidad de las Fuerzas Armadas ESPE
-Sede: Santo Domingo de los Tsáchilas
-Año: 2026
+Toda la información creada por el usuario se almacena en **LocalStorage**, por lo que los datos permanecen únicamente en el navegador donde se utiliza la aplicación.
 
-📄 Licencia
-Este proyecto es de uso académico y educativo. Todos los derechos reservados © 2026.
+En el módulo **ESPE Market** existe la opción **Restablecer datos**, que permite recuperar la información inicial.
+
+---
+
+## 🖼️ Capturas del Proyecto
+
+### Página de Inicio
+
+<img width="458" height="452" alt="Inicio" src="https://github.com/user-attachments/assets/fd065c00-1a02-4536-bc3f-342ff15a9244" />
+
+### Página Principal
+
+<img width="471" height="467" alt="Principal" src="https://github.com/user-attachments/assets/771a0a47-087d-4e12-abe6-b1e1ff1a75c1" />
+
+---
+
+## 🔗 Enlaces
+
+### Sitio Web
+
+https://elkinvera17.github.io/EspeAngola_JS/
+
+### Repositorio
+
+https://github.com/ElkinVera17/EspeAngola_JS
+
+---
+
+## 📝 Créditos
+
+- **Desarrollador:** Elkin Vera
+- **Institución:** Universidad de las Fuerzas Armadas ESPE
+- **Sede:** Santo Domingo de los Tsáchilas
+- **Año:** 2026
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado con fines académicos y educativos.
+
+**© 2026 Elkin Vera. Todos los derechos reservados.**
